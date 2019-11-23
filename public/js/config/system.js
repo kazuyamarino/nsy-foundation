@@ -1,12 +1,8 @@
-/**
- * BASE_URL Config Javascript
+/*
+BASE_URL Config Javascript
 */
-
-/**
- * change according to the name of your project folder
- * @type {String}
- */
-var dirname = "nsy"; // defined
+// change according to the name of your project folder
+var dirname = "shyffon"; // defined
 // var dirname = ""; // undefined
 
 function base_url(url) {
@@ -34,3 +30,8 @@ function base_url(url) {
 		}
 	}
 }
+
+/*
+Foundation initialize
+ */
+$(document).foundation();

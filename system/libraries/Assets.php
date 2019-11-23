@@ -54,15 +54,58 @@ Class Assets extends \Core\NSY_AssetManager
 
 		// Main Style
 		add::link('main.css', 'stylesheet', 'text/css');
+
+		// Foundation CSS
+		add::link('vendor/foundation.min.css', 'stylesheet', 'text/css');
+		add::link('vendor/responsive-tables.min.css', 'stylesheet', 'text/css');
+
+		// Datatables CSS
+		add::link('vendor/dataTables.foundation.min.css', 'stylesheet', 'text/css');
+		add::link('vendor/foundation-datepicker.min.css', 'stylesheet', 'text/css');
+
+		// Font Awesome CSS
+		add::link('vendor/all.min.css', 'stylesheet', 'text/css');
+
+		// Modernizr JS
+		add::script('vendor/modernizr.min.js', 'text/javascript', 'UTF-8', null);
 	}
 
 	public static function footer_assets()
 	{
+		// JQuery JS
+		add::script('vendor/jquery.min.js', 'text/javascript', 'UTF-8', null);
+
+		// Foundation JS
+		add::script('vendor/foundation.min.js', 'text/javascript', 'UTF-8', null);
+		add::script('vendor/what-input.min.js', 'text/javascript', 'UTF-8', null);
+		add::script('vendor/responsive-tables.min.js', 'text/javascript', 'UTF-8', null);
+		add::script('vendor/foundation-datepicker.min.js', 'text/javascript', 'UTF-8', null);
+
+		// Datatables JS
+		add::script('vendor/jquery.dataTables.min.js', 'text/javascript', 'UTF-8', null);
+		add::script('vendor/dataTables.foundation.min.js', 'text/javascript', 'UTF-8', null);
+
+		// Google Analytics: change UA-XXXXX-Y to be your site's ID.
+		add::custom("<script>window.ga=function(){ga.q.push(arguments)}; ga.q=[]; ga.l=+new Date;ga('create','UA-XXXXX-Y','auto'); ga('send','pageview')</script>");
+		add::script('https://www.google-analytics.com/analytics.js', 'text/javascript', null, 'async defer');
+
 		// System JS
 		add::script('config/system.js', 'text/javascript', 'UTF-8', null);
 
-		// Main JS
+		// Base JS
 		add::script('main.js', 'text/javascript', 'UTF-8', null);
+	}
+
+	public static function datatables_init()
+	{
+		add::script('datatables/init.js', 'text/javascript', 'UTF-8', null);
+	}
+
+	public static function sweetalert_init()
+	{
+		add::script('vendor/sweetalert2.all.min.js', 'text/javascript', 'UTF-8', null);
+		add::script('vendor/polyfill.min.js', 'text/javascript', 'UTF-8', null);
+
 	}
 
 }
