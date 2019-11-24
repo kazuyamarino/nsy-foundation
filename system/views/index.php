@@ -5,7 +5,7 @@ defined('ROOT') OR exit('No direct script access allowed');
 	<div class="grid-x grid-padding-x">
 		<div class="large-12 cell">
 			<div class="callout">
-				<h3>Hi, iam NSY!&nbsp;|&nbsp;<a href="<?php echo base_url('hmvc'); ?>">Go To HMVC Page</a></h3>
+				<h3>Hi, iam NSY!&nbsp;|&nbsp;<a href="<?php echo base_url('hmvc'); ?>">Go To HMVC Page</a>&nbsp;|&nbsp;<a href="<?php echo base_url('crud'); ?>">Go To CRUD Example</a></h3>
 				<p>NSY is a simple PHP Framework that works well on MVC or HMVC mode, its made with <a target="_blank" href="https://html5boilerplate.com/">HTML5 Boilerplate</a> and <a target="_blank" href="http://foundation.zurb.com/">Foundation CSS Framework</a>. NSY also provides <a target="_blank" href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a> and several optimizations for <a target="_blank" href="https://www.datatables.net/">Datatables</a> plugin.</p>
 
 				<div class="row">

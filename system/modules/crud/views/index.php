@@ -8,6 +8,7 @@ show::pull_alerts($message);
 	<hr>
 	<div class="grid-x grid-padding-x align-center">
 		<div class="large-5 medium-5 cell">
+			<h5 class="text-center"><a href="<?php echo base_url(); ?>">Back</a></h5>
 			<h5>Users Registration</h5>
 			<form action="<?php echo base_url('crud/insert'); ?>" method="POST" data-abide novalidate class="grid-x grid-padding-x">
 				<div class="large-12 cell">
