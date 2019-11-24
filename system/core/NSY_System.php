@@ -58,6 +58,9 @@ class NSY_System {
 		// Aliasing Assets class name
 		class_alias('Libraries\Assets', 'pull');
 
+		// Aliasing Alerts class name
+		class_alias("Libraries\Alerts", "show");
+
 		// start session
 		session_start();
 	}

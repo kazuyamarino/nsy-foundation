@@ -127,3 +127,35 @@ div.dataTables_info {
 /* ==========================================================================
 Author's custom styles
 ========================================================================== */
+
+
+.action-icon a:first-child, .action-btn button:first-child {
+	margin-right: 2em;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.back-btn {
+	font-size: 1.5em;
+}
+
+.main-checkbox, .sub-checkbox {
+    display: block;
+	padding: 0 0.5em 0 0.5em;
+}
+
+.main-checkbox input, .sub-checkbox input {
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    position: relative;
+}
+
+.footer a:link, .footer h1 {
+	text-decoration: none;
+	color: rgb(90, 146, 241);
+} .footer .fcontent {
+	padding: 2em;
+}

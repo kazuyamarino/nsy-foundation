@@ -101,6 +101,12 @@ Class Assets extends \Core\NSY_AssetManager
 		add::script('datatables/init.js', 'text/javascript', 'UTF-8', null);
 	}
 
+	public static function datatables_crud_init()
+	{
+		add::script('datatables/init_crud.js', 'text/javascript', 'UTF-8', null);
+	}
+
+
 	public static function sweetalert_init()
 	{
 		add::script('vendor/sweetalert2.all.min.js', 'text/javascript', 'UTF-8', null);

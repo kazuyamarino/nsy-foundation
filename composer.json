@@ -22,10 +22,12 @@
             "Models\\": "system/models/",
             "Controllers\\": "system/controllers/",
             "Modules\\Models\\": [
-				"system/modules/homepage/models/"
+				"system/modules/homepage/models/",
+				"system/modules/crud/models/"
 			],
 			"Modules\\Controllers\\": [
-				"system/modules/homepage/controllers/"
+				"system/modules/homepage/controllers/",
+				"system/modules/crud/controllers/"
 			]
         },
         "files": [

@@ -28,7 +28,7 @@ defined('ROOT') OR exit('No direct script access allowed');
 		</div>
 		<div class="large-2 cell">
 			<div class="text-center">
-				<a target="_blank" href="https://github.com/kazuyamarino/shyffon"><i class="fab fa-github fa-5x"></i>
+				<a target="_blank" href="https://github.com/kazuyamarino/shyffon-crud"><i class="fab fa-github fa-5x"></i>
 					<p>View On Github</p>
 				</a>
 			</div>
