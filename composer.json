@@ -10,12 +10,12 @@
         }
     ],
 	"require": {
-		"nesbot/carbon": "^2.27.0",
+        "nesbot/carbon": "^2.27.0",
         "vlucas/phpdotenv": "^3.6.0",
 		"nicolab/php-ftp-client": "^1.5.1"
     },
     "autoload": {
-        "psr-4": {
+		"psr-4": {
             "Routes\\": "system/routes/",
             "Libraries\\": "system/libraries/",
             "Core\\": "system/core/",
