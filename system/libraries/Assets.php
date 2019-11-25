@@ -74,6 +74,7 @@ Class Assets extends \Core\NSY_AssetManager
 	{
 		// JQuery JS
 		add::script('vendor/jquery.min.js', 'text/javascript', 'UTF-8', null);
+		add::script('vendor/jquery-migrate-3.1.0.min.js', 'text/javascript', 'UTF-8', null);
 
 		// Foundation JS
 		add::script('vendor/foundation.min.js', 'text/javascript', 'UTF-8', null);
