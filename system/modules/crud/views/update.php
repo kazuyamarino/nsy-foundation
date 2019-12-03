@@ -5,20 +5,20 @@ defined('ROOT') OR exit('No direct script access allowed');
 	<hr>
 	<div class="grid-x grid-padding-x">
 		<div class="large-5 medium-5 cell">
-			<a class="back-btn" href="<?php echo base_url('crud'); ?>"><i class="fas fa-arrow-left"></i>&nbsp;Back</a>
+			<a class="back-btn" href="@( base_url('crud') )"><i class="fas fa-arrow-left"></i>&nbsp;Back</a>
 		</div>
 	</div>
 	<div class="grid-x grid-padding-x align-center">
 		<div class="large-5 medium-5 cell">
 			<h5>Users Information</h5>
-			<form action="<?php echo base_url('crud/update/'. $data['id']. ''); ?>" method="POST" data-abide novalidate class="grid-x grid-padding-x">
+			<form action="@( base_url('crud/update/'. $data['id']. '') )" method="POST" data-abide novalidate class="grid-x grid-padding-x">
 				<div class="large-12 cell">
 					<div data-abide-error class="alert callout" style="display: none;">
 						<p><i class="fi-alert"></i> There are some errors in your form.</p>
 					</div>
 
 					<label>Username&nbsp;<small>(required)</small>
-						<input type="text" name="username" id="username-help" placeholder="3 - 50 characters" pattern="^[a-z0-9\._-]{3,50}$" value="<?php echo $data['user_name']; ?>" required>
+						<input type="text" name="username" id="username-help" placeholder="3 - 50 characters" pattern="^[a-z0-9\._-]{3,50}$" value="@( $data['user_name'] )" required>
 						<span class="form-error">
 							<ul>
 								<li>Username must be lowercase</li>
@@ -45,8 +45,8 @@ defined('ROOT') OR exit('No direct script access allowed');
 
 					<label for="radio-stat">Status Active&nbsp;<small>(required)</small></label>
 					<div id="radio-stat" class="radio-group">
-						<input type="radio" name="status" value="Y" id="act-stat" <?php echo (('Y' == $data['user_status']) ? 'checked' : ""); ?> required><label for="act-stat">Yes</label>
-						<input type="radio" name="status" value="N" id="deact-stat" <?php echo (('N' == $data['user_status']) ? 'checked' : ""); ?>><label for="deact-stat">No</label>
+						<input type="radio" name="status" value="Y" id="act-stat" @( ternary( ('Y' == $data['user_status']), 'checked', '') ) required><label for="act-stat">Yes</label>
+						<input type="radio" name="status" value="N" id="deact-stat" @( ternary( ('N' == $data['user_status']), 'checked', '' ) )><label for="deact-stat">No</label>
 						<span class="form-error">Must select at least one</span>
 					</div>
 					<p class="help-text" id="status-help">Choose one user status.</p>

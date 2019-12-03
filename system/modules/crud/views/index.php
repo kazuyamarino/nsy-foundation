@@ -8,9 +8,9 @@ show::pull_alerts($message);
 	<hr>
 	<div class="grid-x grid-padding-x align-center">
 		<div class="large-5 medium-5 cell">
-			<h5 class="text-center"><a href="<?php echo base_url(); ?>">Back</a></h5>
+			<h5 class="text-center"><a href="@( base_url() )">Back</a></h5>
 			<h5>Users Registration</h5>
-			<form action="<?php echo base_url('crud/insert'); ?>" method="POST" data-abide novalidate class="grid-x grid-padding-x">
+			<form action="@( base_url('crud/insert') )" method="POST" data-abide novalidate class="grid-x grid-padding-x">
 				<div class="large-12 cell">
 					<div data-abide-error class="alert callout" style="display: none;">
 						<p><i class="fi-alert"></i> There are some errors in your form.</p>
@@ -70,7 +70,7 @@ show::pull_alerts($message);
 
 		<div class="grid-x grid-padding-x">
 			<div class="large-12 medium-12 cell">
-				<form id="multidelete-frm" action="<?php echo base_url('crud/multidelete'); ?>" method="POST" data-abide novalidate>
+				<form id="multidelete-frm" action="@( base_url('crud/multidelete') )" method="POST" data-abide novalidate>
 					<div class="grid-x">
 						<div class="large-6 cell">
 							<h5>Users Database</h5>

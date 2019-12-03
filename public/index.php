@@ -5,6 +5,11 @@
 use Core\NSY_System;
 
 /**
+ * Use NSY_Desk class
+ */
+use Core\NSY_Desk;
+
+/**
  * Use NSY_Router class
  */
 use Core\NSY_Router;
@@ -106,33 +111,11 @@ define('ENVIRONMENT', config_app('app_env'));
 * Different environments will require different levels of error reporting.
 * By default development will show errors but production will hide them.
 */
-if (defined('ENVIRONMENT')) {
-	switch (ENVIRONMENT) {
-		// Set as under development
-		case 'development':
-			ini_set('display_errors', 1);
-			ini_set('display_startup_errors', 1);
-			error_reporting(E_ALL);
-		break;
-
-		// Set as under production/go live
-		case 'production':
-			ini_set('display_errors', 0);
-			error_reporting(0);
-
-			if (version_compare(PHP_VERSION, '5.3', '>=')) {
-				error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
-			} else {
-				error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
-			}
-		break;
-		default:
-
-		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		exit('The application environment is not set correctly.');
-		exit(1); // EXIT_ERROR
-	}
-}
+/**
+ * Instantiate Desk
+ */
+$desk = new NSY_Desk();
+$desk->error_switch();
 
 /**
  * Execute matched routes

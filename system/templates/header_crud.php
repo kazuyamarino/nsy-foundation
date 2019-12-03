@@ -2,15 +2,13 @@
 defined('ROOT') OR exit('No direct script access allowed');
 ?>
 <!doctype html>
-<html class="no-js" lang="<?php echo LANGUAGE_CODE ?>">
+<html class="no-js" lang="@( LANGUAGE_CODE )">
 <head>
-	<?php
-	// call sweetalert
-	pull::sweetalert_init();
+	<!-- call sweetalert -->
+	@( pull::sweetalert_init() )
 
-	// call header assets method
-	pull::header_assets();
-	?>
+	<!-- call header assets method -->
+	@( pull::header_assets() )
 </head>
 <body>
 	<!--[if lte IE 9]>
@@ -19,7 +17,7 @@ defined('ROOT') OR exit('No direct script access allowed');
 
 	<header style="margin-top: 1rem;" class="header grid-x grid-padding-x align-middle">
 		<div class="large-2 cell">
-			<a href="<?php echo base_url(); ?>"><img src="<?php echo IMG_DIR ?>logo.png" width="200"/></a>
+			<a href="@( base_url() )"><img src="@( IMG_DIR.'logo.png' )" width="200"/></a>
 		</div>
 		<div class="large-8 cell text-center">
 			<h2>Welcome to Project Shyffon</h2>

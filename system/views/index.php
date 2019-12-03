@@ -5,7 +5,7 @@ defined('ROOT') OR exit('No direct script access allowed');
 	<div class="grid-x grid-padding-x">
 		<div class="large-12 cell">
 			<div class="callout">
-				<h3>Hi, iam NSY!&nbsp;|&nbsp;<a href="<?php echo base_url('hmvc'); ?>">Go To HMVC Page</a>&nbsp;|&nbsp;<a href="<?php echo base_url('crud'); ?>">Go To CRUD Example</a></h3>
+				<h3>Hi, iam NSY!&nbsp;|&nbsp;<a href="@( base_url('hmvc') )">Go To HMVC Page</a>&nbsp;|&nbsp;<a href="@( base_url('crud') )">Go To CRUD Example</a></h3>
 				<p>NSY is a simple PHP Framework that works well on MVC or HMVC mode, its made with <a target="_blank" href="https://html5boilerplate.com/">HTML5 Boilerplate</a> and <a target="_blank" href="http://foundation.zurb.com/">Foundation CSS Framework</a>. NSY also provides <a target="_blank" href="http://fortawesome.github.io/Font-Awesome/">Font-Awesome</a> and several optimizations for <a target="_blank" href="https://www.datatables.net/">Datatables</a> plugin.</p>
 
 				<div class="row">
@@ -92,7 +92,7 @@ defined('ROOT') OR exit('No direct script access allowed');
 						<p><a target="_blank" href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</p>
 					</div>
 					<div class="large-4 medium-4 medium-pull-2 cell">
-						<p><a target="_blank" href="https://twitter.com/ZURBfoundation">@zurbfoundation</a><br />Ping us on Twitter if you have questions. When you build something with this we'd love to see it (and send you a totally boss sticker).</p>
+						<p><a target="_blank" href="https://twitter.com/ZURBfoundation">@( '@zurbfoundatione' )</a><br />Ping us on Twitter if you have questions. When you build something with this we'd love to see it (and send you a totally boss sticker).</p>
 					</div>
 				</div>
 			</div>
