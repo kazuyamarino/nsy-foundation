@@ -10,6 +10,7 @@ defined('ROOT') OR exit('No direct script access allowed');
 
 class c_crud extends NSY_Controller
 {
+
 	public function __construct()
 	{
 		// Instantiate Model Crud
