@@ -33,8 +33,10 @@ class ComposerStaticInityour_suffixed
         ),
         'M' => 
         array (
-            'Modules\\Models\\' => 15,
-            'Modules\\Controllers\\' => 20,
+            'Modules\\Homepage\\Models\\' => 24,
+            'Modules\\Homepage\\Controllers\\' => 29,
+            'Modules\\Crud\\Models\\' => 20,
+            'Modules\\Crud\\Controllers\\' => 25,
             'Models\\' => 7,
         ),
         'L' => 
@@ -98,15 +100,21 @@ class ComposerStaticInityour_suffixed
         array (
             0 => __DIR__ . '/../../..' . '/system/core/Razr',
         ),
-        'Modules\\Models\\' => 
+        'Modules\\Homepage\\Models\\' => 
         array (
             0 => __DIR__ . '/../../..' . '/system/modules/homepage/models',
-            1 => __DIR__ . '/../../..' . '/system/modules/crud/models',
         ),
-        'Modules\\Controllers\\' => 
+        'Modules\\Homepage\\Controllers\\' => 
         array (
             0 => __DIR__ . '/../../..' . '/system/modules/homepage/controllers',
-            1 => __DIR__ . '/../../..' . '/system/modules/crud/controllers',
+        ),
+        'Modules\\Crud\\Models\\' => 
+        array (
+            0 => __DIR__ . '/../../..' . '/system/modules/crud/models',
+        ),
+        'Modules\\Crud\\Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../../..' . '/system/modules/crud/controllers',
         ),
         'Models\\' => 
         array (
@@ -193,6 +201,7 @@ class ComposerStaticInityour_suffixed
         'Core\\NSY_Controller' => __DIR__ . '/../../..' . '/system/core/NSY_Controller.php',
         'Core\\NSY_DB' => __DIR__ . '/../../..' . '/system/core/NSY_DB.php',
         'Core\\NSY_Desk' => __DIR__ . '/../../..' . '/system/core/NSY_Desk.php',
+        'Core\\NSY_Migration' => __DIR__ . '/../../..' . '/system/core/NSY_Migration.php',
         'Core\\NSY_Model' => __DIR__ . '/../../..' . '/system/core/NSY_Model.php',
         'Core\\NSY_Router' => __DIR__ . '/../../..' . '/system/core/NSY_Router.php',
         'Core\\NSY_System' => __DIR__ . '/../../..' . '/system/core/NSY_System.php',
@@ -228,10 +237,10 @@ class ComposerStaticInityour_suffixed
         'Libraries\\Assets' => __DIR__ . '/../../..' . '/system/libraries/Assets.php',
         'Libraries\\Cookie' => __DIR__ . '/../../..' . '/system/libraries/Cookie.php',
         'Models\\Model_Welcome' => __DIR__ . '/../../..' . '/system/models/Model_Welcome.php',
-        'Modules\\Controllers\\Hello' => __DIR__ . '/../../..' . '/system/modules/homepage/controllers/Hello.php',
-        'Modules\\Controllers\\c_crud' => __DIR__ . '/../../..' . '/system/modules/crud/controllers/c_crud.php',
-        'Modules\\Models\\Model_Hello' => __DIR__ . '/../../..' . '/system/modules/homepage/models/Model_Hello.php',
-        'Modules\\Models\\m_crud' => __DIR__ . '/../../..' . '/system/modules/crud/models/m_crud.php',
+        'Modules\\Crud\\Controllers\\c_crud' => __DIR__ . '/../../..' . '/system/modules/crud/controllers/c_crud.php',
+        'Modules\\Crud\\Models\\m_crud' => __DIR__ . '/../../..' . '/system/modules/crud/models/m_crud.php',
+        'Modules\\Homepage\\Controllers\\Hello' => __DIR__ . '/../../..' . '/system/modules/homepage/controllers/Hello.php',
+        'Modules\\Homepage\\Models\\Model_Hello' => __DIR__ . '/../../..' . '/system/modules/homepage/models/Model_Hello.php',
         'PhpOption\\LazyOption' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/LazyOption.php',
         'PhpOption\\None' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/None.php',
         'PhpOption\\Option' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/Option.php',
@@ -264,6 +273,7 @@ class ComposerStaticInityour_suffixed
         'Razr\\Token' => __DIR__ . '/../../..' . '/system/core/Razr/Token.php',
         'Razr\\TokenStream' => __DIR__ . '/../../..' . '/system/core/Razr/TokenStream.php',
         'Routes\\Api' => __DIR__ . '/../../..' . '/system/routes/Api.php',
+        'Routes\\Migration' => __DIR__ . '/../../..' . '/system/routes/Migration.php',
         'Routes\\Web' => __DIR__ . '/../../..' . '/system/routes/Web.php',
         'Symfony\\Component\\Translation\\Catalogue\\AbstractOperation' => __DIR__ . '/..' . '/symfony/translation/Catalogue/AbstractOperation.php',
         'Symfony\\Component\\Translation\\Catalogue\\MergeOperation' => __DIR__ . '/..' . '/symfony/translation/Catalogue/MergeOperation.php',

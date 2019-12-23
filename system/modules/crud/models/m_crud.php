@@ -1,5 +1,5 @@
 <?php
-namespace Modules\Models;
+namespace Modules\Crud\Models;
 
 defined('ROOT') OR exit('No direct script access allowed');
 
@@ -11,7 +11,7 @@ class m_crud extends NSY_Model
 	public function get_data()
 	{
 		// query to display the data table in json form
-		$query = "SELECT * FROM tbl_users LIMIT 50";
+		$query = "SELECT * FROM tbl_users";
 		$data = $this->connect()->query($query)->style(FETCH_ASSOC)->fetch_all();
 		$json_data = fetch_json([
 			"data" => $data

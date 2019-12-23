@@ -27,14 +27,10 @@
             "Core\\": "system/core/",
             "Models\\": "system/models/",
             "Controllers\\": "system/controllers/",
-            "Modules\\Models\\": [
-				"system/modules/homepage/models/",
-				"system/modules/crud/models/"
-			],
-			"Modules\\Controllers\\": [
-				"system/modules/homepage/controllers/",
-				"system/modules/crud/controllers/"
-			]
+			"Modules\\Homepage\\Models\\": "system/modules/homepage/models/",
+			"Modules\\Homepage\\Controllers\\": "system/modules/homepage/controllers/",
+            "Modules\\Crud\\Models\\": "system/modules/crud/models/",
+			"Modules\\Crud\\Controllers\\": "system/modules/crud/controllers/"
         },
         "files": [
 			"system/helpers/NSY_Helpers.php",

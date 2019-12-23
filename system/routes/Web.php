@@ -15,22 +15,22 @@ Class Web
 		// Route type : any, get, post, put, delete, options, & head
 
 		// MVC Route
-		route::any('shyffon/', 'Controllers\Welcome@index');
+		route::any('', 'Controllers\Welcome@index');
 
 		// HMVC Route
-		route::any('shyffon/hmvc', 'Modules\Controllers\Hello@index_hmvc');
+		route::any('hmvc', 'Modules\Homepage\Controllers\Hello@index_hmvc');
 
 		// Crud Route
-		route::any('shyffon/crud', 'Modules\Controllers\c_crud@crud_homepage');
-		route::any('shyffon/crud/(:any)', 'Modules\Controllers\c_crud@crud_homepage');
-		route::any('shyffon/crud/insert', 'Modules\Controllers\c_crud@crud_insert');
-		route::any('shyffon/crud/delete/(:num)', 'Modules\Controllers\c_crud@crud_delete');
-		route::any('shyffon/crud/multidelete', 'Modules\Controllers\c_crud@crud_multidelete');
-		route::any('shyffon/crud/update/(:num)', 'Modules\Controllers\c_crud@crud_update');
-		route::any('shyffon/crud/fetch/(:num)', 'Modules\Controllers\c_crud@crud_fetch');
+		route::any('crud', 'Modules\Crud\Controllers\c_crud@crud_homepage');
+		route::any('crud/(:any)', 'Modules\Crud\Controllers\c_crud@crud_homepage');
+		route::any('crud/insert', 'Modules\Crud\Controllers\c_crud@crud_insert');
+		route::any('crud/delete/(:num)', 'Modules\Crud\Controllers\c_crud@crud_delete');
+		route::any('crud/multidelete', 'Modules\Crud\Controllers\c_crud@crud_multidelete');
+		route::any('crud/update/(:num)', 'Modules\Crud\Controllers\c_crud@crud_update');
+		route::any('crud/fetch/(:num)', 'Modules\Crud\Controllers\c_crud@crud_fetch');
 
 		// Data route
-		route::any('shyffon/crud/data.json', 'Modules\Controllers\c_crud@crud_data');
+		route::any('crud/data.json', 'Modules\Crud\Controllers\c_crud@crud_data');
 	}
 
 }

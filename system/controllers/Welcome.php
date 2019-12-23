@@ -5,7 +5,7 @@ defined('ROOT') OR exit('No direct script access allowed');
 
 use Core\NSY_Controller;
 use Models\Model_Welcome;
-use Modules\Models\Model_Hello;
+use Modules\Homepage\Models\Model_Hello;
 use Carbon\Carbon;
 use Libraries\Cookie;
 

@@ -1,10 +1,10 @@
 <?php
-namespace Modules\Controllers;
+namespace Modules\Crud\Controllers;
 
 use Core\NSY_Controller;
 use Carbon\Carbon;
 use Libraries\Cookie;
-use Modules\Models\m_crud;
+use Modules\Crud\Models\m_crud;
 
 defined('ROOT') OR exit('No direct script access allowed');
 
