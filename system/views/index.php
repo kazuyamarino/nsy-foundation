@@ -10,10 +10,10 @@ defined('ROOT') OR exit('No direct script access allowed');
 
 				<div class="row">
 					<div class="large-4 medium-4 cell">
-						<p><a target="_blank" href="https://github.com/kazuyamarino/nsy-foundation/blob/master/README.md#how-to-dating-with-nsy">How to dating with NSY?</a><br />The setup.</p>
+						<p><a target="_blank" href="https://github.com/kazuyamarino/nsy/blob/master/README.md#how-to-dating-with-nsy">How to dating with NSY?</a><br />The setup.</p>
 					</div>
 					<div class="large-4 medium-4 cell">
-						<p><a target="_blank" href="https://github.com/kazuyamarino/shyffon#shyffon-contain-package-">NSY contain package</a><br />The package inside NSY.</p>
+						<p><a target="_blank" href="https://github.com/kazuyamarino/shyffon#shyffon-contain-package-">Shyffon contain package</a><br />The package inside NSY.</p>
 					</div>
 					<div class="large-4 medium-4 cell">
 						<p><a target="_blank" href="https://github.com/kazuyamarino/nsy/blob/master/README.md#crud-example">NSY CRUD Example</a><br />The CRUD example build by NSY.</p>
