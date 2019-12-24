@@ -101,7 +101,7 @@ return [
     | set the default public directory
     |
     */
-	'public_dir' => 'public/',
+	'public_dir' => getenv('PUBLIC_DIR'),
 
 	/*
     |--------------------------------------------------------------------------
