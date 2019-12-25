@@ -10,12 +10,12 @@ Site example :
 * Simply rename the folder that has been downloaded to `shyffon` & copy it to your `html` or `htdocs` or anythings folder.
 * For apache, please go to the `docs/apache` folder and read the Readme.txt.
 * For nginx, please go to the `docs/nginx` folder.
-* Go to the `docs/env` folder and copy the `.env.example` to root folder, and rename it to `.env`.
+* Go to the `docs/env.example` folder and copy the `env.example` to root folder, and rename it to `env`.
 * Import database example. (see below)
 * And save the date..
 
 ## Database Example
-There is an example database (sql file) in the `docs/db_example/` folder.
+There is an example database (sql file) in the `docs/db.example/` folder.
 
 ## Shyffon contain package :
 * [Datatables jQuery Javascript Library](https://www.datatables.net/) with Responsive Plugin
