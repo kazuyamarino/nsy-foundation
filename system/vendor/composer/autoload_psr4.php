@@ -17,6 +17,7 @@ return array(
     'Razr\\Exception\\' => array($baseDir . '/system/core/Razr/Exception'),
     'Razr\\Directive\\' => array($baseDir . '/system/core/Razr/Directive'),
     'Razr\\' => array($baseDir . '/system/core/Razr'),
+    'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
     'Modules\\Homepage\\Models\\' => array($baseDir . '/system/modules/homepage/models'),
     'Modules\\Homepage\\Controllers\\' => array($baseDir . '/system/modules/homepage/controllers'),
     'Modules\\Crud\\Models\\' => array($baseDir . '/system/modules/crud/models'),
