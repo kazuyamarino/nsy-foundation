@@ -67,7 +67,8 @@ just that we'll ensure compatibility with the ones mentioned above.*
 See [USERGUIDE.md](https://github.com/kazuyamarino/nsy/blob/master/docs/USERGUIDE.md).
 
 ## System Guide.
-See [SYSGUIDE.md](https://github.com/kazuyamarino/nsy/blob/master/docs/SYSGUIDE.md).
+Part 1 of [SYSGUIDE.md](https://github.com/kazuyamarino/nsy/blob/master/docs/SYSGUIDE.md).<br/>
+Part 2 of [SYSGUIDE.md](https://github.com/kazuyamarino/nsy/blob/master/docs/SYSGUIDE_2.md).
 
 ## License
 The code is available under the [MIT license](LICENSE.txt)..
