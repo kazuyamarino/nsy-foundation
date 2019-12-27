@@ -10,7 +10,7 @@ defined('ROOT') OR exit('No direct script access allowed');
 				<div class="large-4 medium-6 cell">
 					<p><i class="fab fa-html5 fa-3x"></i>&nbsp;<i class="fab fa-css3 fa-3x"></i></p>
 					<p>This is a Sticky Footer.</p>
-					<p><a target="_blank" href="@( 'mailto:admin@kazuyamarino.com' )">Vikry Yuansah </a><i class="fas fa-forward"></i> <a href="@( base_url() )">NSY 2015 - @( date("Y") )</a></p>
+					<p><a target="_blank" href="@( 'mailto:admin@kazuyamarino.com' )">Vikry Yuansah </a><i class="fas fa-forward"></i> <a href="@( base_url() )">Shyffon</a> @(VERSION), 2018 - @( date("Y") ).</p>
 					<hr class="show-for-small-only"/>
 				</div>
 				<div class="large-4 medium-6 cell">
