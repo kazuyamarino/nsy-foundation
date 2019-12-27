@@ -7,15 +7,22 @@ Site example :
 [https://shyffon.kazuyamarino.com](https://shyffon.kazuyamarino.com)
 
 ## Lets start!
-* Simply rename the folder that has been downloaded to `shyffon` & copy it to your `html` or `htdocs` or anythings folder.
+### Download from Github
+* Download source from this link [https://github.com/kazuyamarino/shyffon/releases](https://github.com/kazuyamarino/shyffon/releases).
+* Simply rename the source folder that has been downloaded to `shyffon` & copy it to your `html` or `htdocs` or anythings folder.
 * For apache, please go to the `docs/apache` folder and read the Readme.txt.
 * For nginx, please go to the `docs/nginx` folder.
 * Go to the `docs/env.example` folder and copy the `env.example` to root folder, and rename it to `env`.
 * Import database example. (see below)
 * And save the date..
 
+### From Composer
+```
+composer create-project vikry/shyffon
+```
+
 ## Database Example
-There is an example database (sql file) in the `docs/db.example/` folder.
+There is an example database (sql file) in the `dump` folder. You can restore the sql file to a database that you created yourself.
 
 ## Shyffon contain package :
 * [Datatables jQuery Javascript Library](https://www.datatables.net/) with Responsive Plugin

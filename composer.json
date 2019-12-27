@@ -1,6 +1,6 @@
 {
-    "name": "vikry/nsy",
-    "description": "NSY is a simple PHP Framework that works well on MVC or HMVC mode",
+    "name": "vikry/shyffon",
+    "description": "NSY PHP Framework Example with HTML5 Boilerplate and Foundation CSS Framework in one package",
     "type": "project",
     "license": "MIT",
     "authors": [
