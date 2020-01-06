@@ -1,35 +1,39 @@
 <?php
-namespace Migrations;
+namespace System\Migrations;
 
 defined('ROOT') OR exit('No direct script access allowed');
 
-use Core\NSY_Migration;
+use System\Core\NSY_Migration;
+use System\Core\Migration_Impl;
 
-class mig_tmp extends NSY_Migration
+/**
+ * The migration class
+ */
+class mig_tmp extends NSY_Migration implements Migration_Impl
 {
 
-	/**
-	 * NSY Migration
-	 */
+    /**
+     * NSY Migration
+     */
 
-	 /**
-	  * Run the migrations.
-	  *
-	  * @return void
-	  */
-	public function up()
-	{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
 
-	}
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
 
-	}
+    }
 
 }

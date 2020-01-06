@@ -1,8 +1,9 @@
 #!/bin/bash
+
 if [ -z $1 ]
 then
 	printf "Module name undefined\n"
-	printf "There must be 'make_module <module-name>'\n"
+	printf "There must be 'module <module-name>'\n"
 elif [ -n $1 ]
 then
 	dirname=$1

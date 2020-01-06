@@ -3,6 +3,7 @@
 #----------------------------------------------------------
 # a simple mysql database backup script.
 # version 2, updated March 26, 2011.
+# modified by Vikry Yuansah 2019.
 # copyright 2011 alvin alexander, http://alvinalexander.com
 #----------------------------------------------------------
 # This work is licensed under a Creative Commons
@@ -14,8 +15,8 @@
 if [ -z $1 ] || [ -z $2 ]
 then
 	printf "Database name, username, & password undefined\n"
-	printf "There must be 'mysql_dump_db <database name> <username> <password>'\n"
-	printf "or 'mysql_dump_db <database name> <username> <password> <table name>'\n"
+	printf "There must be 'nsy_mysql_dump <database name> <username> <password>'\n"
+	printf "or 'nsy_mysql_dump <database name> <username> <password> <table name>'\n"
 elif [ -n $1 ]
 then
 	if [ -z $4 ]
