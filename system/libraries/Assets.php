@@ -39,26 +39,33 @@ Class Assets extends \System\Core\NSY_AssetManager
 	public static function header_assets()
 	{
 		// Site Title
-		add::custom('<title>' . SITETITLE . ' | ' . VERSION . '</title>');
-		// Meta Tag
-		add::meta('charset="utf-8"', null);
-		add::meta('http-equiv="x-ua-compatible"', 'ie=edge');
-		add::meta('name="description"', SITEDESCRIPTION);
-		add::meta('name="keywords"', SITEKEYWORDS);
-		add::meta('name="author"', SITEAUTHOR);
-		add::meta('name="viewport"', 'width=device-width, initial-scale=1, shrink-to-fit=no');
+        Add::custom('<title>' . get_title() . ' ' . get_version() . ' | ' . get_codename() . '</title>');
+
+        // Meta Tag
+        Add::meta('charset="utf-8"', null);
+        Add::meta('http-equiv="x-ua-compatible"', 'ie=edge');
+        Add::meta('name="description"', get_desc());
+        Add::meta('name="keywords"', get_keywords());
+        Add::meta('name="author"', get_author());
+        Add::meta('name="viewport"', 'width=device-width, initial-scale=1, shrink-to-fit=no');
+
 		// Favicon
 		add::link('favicon.png', 'shortcut icon', null);
+
 		// Main Style
 		add::link('main.css', 'stylesheet', 'text/css');
+
 		// Foundation CSS
 		add::link('vendor/foundation.min.css', 'stylesheet', 'text/css');
 		add::link('vendor/responsive-tables.min.css', 'stylesheet', 'text/css');
+
 		// Datatables CSS
 		add::link('vendor/dataTables.foundation.min.css', 'stylesheet', 'text/css');
 		add::link('vendor/foundation-datepicker.min.css', 'stylesheet', 'text/css');
+
 		// Font Awesome CSS
 		add::link('vendor/all.min.css', 'stylesheet', 'text/css');
+
 		// Modernizr JS
 		add::script('vendor/modernizr.min.js', 'text/javascript', 'UTF-8', null);
 	}
@@ -68,19 +75,24 @@ Class Assets extends \System\Core\NSY_AssetManager
 		// JQuery JS
 		add::script('vendor/jquery.min.js', 'text/javascript', 'UTF-8', null);
 		add::script('vendor/jquery-migrate-3.1.0.min.js', 'text/javascript', 'UTF-8', null);
+
 		// Foundation JS
 		add::script('vendor/foundation.min.js', 'text/javascript', 'UTF-8', null);
 		add::script('vendor/what-input.min.js', 'text/javascript', 'UTF-8', null);
 		add::script('vendor/responsive-tables.min.js', 'text/javascript', 'UTF-8', null);
 		add::script('vendor/foundation-datepicker.min.js', 'text/javascript', 'UTF-8', null);
+
 		// Datatables JS
 		add::script('vendor/jquery.dataTables.min.js', 'text/javascript', 'UTF-8', null);
 		add::script('vendor/dataTables.foundation.min.js', 'text/javascript', 'UTF-8', null);
+
 		// Google Analytics: change UA-XXXXX-Y to be your site's ID.
 		add::custom("<script>window.ga=function(){ga.q.push(arguments)}; ga.q=[]; ga.l=+new Date;ga('create','UA-XXXXX-Y','auto'); ga('send','pageview')</script>");
 		add::script('https://www.google-analytics.com/analytics.js', 'text/javascript', null, 'async defer');
+
 		// System JS
 		add::script('config/system.js', 'text/javascript', 'UTF-8', null);
+
 		// Base JS
 		add::script('main.js', 'text/javascript', 'UTF-8', null);
 	}
