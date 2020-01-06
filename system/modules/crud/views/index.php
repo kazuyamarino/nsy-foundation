@@ -1,9 +1,8 @@
 <?php
 defined('ROOT') OR exit('No direct script access allowed');
-
-// call alerts method
-show::pull_alerts($message);
 ?>
+<!-- call alerts method -->
+@( Show::pull_alerts($message) )
 <div class="content">
 	<hr>
 	<div class="grid-x grid-padding-x align-center">
