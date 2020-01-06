@@ -1,13 +1,14 @@
 <?php
-namespace Controllers;
+namespace System\Controllers;
 
 defined('ROOT') OR exit('No direct script access allowed');
 
-use Core\NSY_Controller;
-use Models\Model_Welcome;
-use Modules\Homepage\Models\Model_Hello;
+use System\Core\NSY_Controller;
+use System\Models\Model_Welcome;
+use System\Modules\Homepage\Models\Model_Hello;
+use System\Libraries\Cookie;
+
 use Carbon\Carbon;
-use Libraries\Cookie;
 
 class Welcome extends NSY_Controller
 {

@@ -1,85 +1,98 @@
 <?php
-namespace Core;
+namespace System\Core;
 
 defined('ROOT') OR exit('No direct script access allowed');
 
-/*
- * This is the core of NSY System Settings
- * 2018 - Vikry Yuansah
- * Attention, don't try to change the structure of the code, delete, or change. Because there is some code connected to the NSY system. So, be careful.
+/**
+ * Use Session class
  */
-class NSY_System {
+use System\Libraries\Session;
 
-	/**
-	 * Defined variable for NSY Core System
-	 */
-	public function __construct() {
-		// turn on output buffering
-		ob_start();
+/**
+ * This is the core of NSY System Settings
+ * Attention, don't try to change the structure of the code, delete, or change.
+ * Because there is some code connected to the NSY system. So, be careful.
+ */
+class NSY_System
+{
 
-		// set the default public/css/js path
-		define('CSS_DIR', base_url() . config_app('public_dir') . config_app('css_dir') . '/'); // CSS directory path
+    /**
+     * Defined variable for NSY Core System
+     */
+    public function __construct()
+    {
+        // turn on output buffering
+        ob_start();
 
-		define('JS_DIR', base_url() . config_app('public_dir') . config_app('js_dir') . '/'); // JS directory path
+		if ( is_filled(config_app('public_dir')) ) {
+			// set the default public/css/js path
+	        define('CSS_DIR', base_url() . config_app('public_dir') . '/' . config_app('css_dir') . '/'); // CSS directory path
 
-		define('IMG_DIR', base_url() . config_app('public_dir') . config_app('img_dir') . '/'); // IMG directory path
+	        define('JS_DIR', base_url() . config_app('public_dir') . '/' . config_app('js_dir') . '/'); // JS directory path
 
-		/**
-		 * set the default view path
-		 */
-		// Template directory path
-		define('SYS_TMP_DIR', config_app('tmp_dir') . '/');
+	        define('IMG_DIR', base_url() . config_app('public_dir') . '/' . config_app('img_dir') . '/'); // IMG directory
+		} else {
+			// set the default public/css/js path
+	        define('CSS_DIR', base_url() . config_app('css_dir') . '/'); // CSS directory path
 
-		// MVC directory path
-		define('MVC_VIEW_DIR', config_app('mvc_dir') . '/');
+	        define('JS_DIR', base_url() . config_app('js_dir') . '/'); // JS directory path
 
-		// HMVC directory path
-		define('HMVC_VIEW_DIR', config_app('hmvc_dir') . '/');
+	        define('IMG_DIR', base_url() . config_app('img_dir') . '/'); // IMG directory
+		}
 
-		// Vendor directory path
-		define('VENDOR_DIR', config_app('vendor_dir') . '/');
+        // Template directory path
+        define('SYS_TMP_DIR', config_app('tmp_dir') . '/');
 
-		// set a default language
-		define('LANGUAGE_CODE', config_app('locale'));
+        // MVC directory path
+        define('MVC_VIEW_DIR', config_app('mvc_dir') . '/');
 
-		// set a default prefix OG
-		define('PREFIX', config_app('prefix_attr'));
+        // HMVC directory path
+        define('HMVC_VIEW_DIR', config_app('hmvc_dir') . '/');
 
-		// set prefix for sessions
-		define('SESSION_PREFIX', config_app('session_prefix'));
+        // Vendor directory path
+        define('VENDOR_DIR', config_app('vendor_dir') . '/');
 
-		// optional create a constant for the name of the site
-		define('SITETITLE', config_site('sitetitle'));
+        // set a default language
+        define('LANGUAGE_CODE', config_app('locale'));
 
-		// optional set a site author
-		define('SITEAUTHOR', config_site('siteauthor'));
+        // set a default prefix OG
+        define('OG_PREFIX', config_app('prefix_attr'));
 
-		// optional set a site keywords
-		define('SITEKEYWORDS', config_site('sitekeywords'));
+        // set prefix for sessions
+        define('SESSION_PREFIX', config_app('session_prefix'));
 
-		// optional set a site description
-		define('SITEDESCRIPTION', config_site('sitedesc'));
+        // optional create a constant for the name of the site
+        define('SITETITLE', config_site('sitetitle'));
 
-		// optional set a site email address
-		define('SITEEMAIL', config_site('siteemail'));
+        // optional set a site author
+        define('SITEAUTHOR', config_site('siteauthor'));
 
-		// optional set a version of the application
-		define('VERSION', config_site('version'));
+        // optional set a site keywords
+        define('SITEKEYWORDS', config_site('sitekeywords'));
 
-		// optional set a codename of the application
-		define('CODENAME', config_site('codename'));
+        // optional set a site description
+        define('SITEDESCRIPTION', config_site('sitedesc'));
 
-		// set timezone
-		date_default_timezone_set(config_app('timezone'));
+        // optional set a site email address
+        define('SITEEMAIL', config_site('siteemail'));
 
-		// aliasing Assets class name
-		class_alias('Libraries\Assets', 'pull');
+        // optional set a version of the application
+        define('VERSION', config_site('version'));
+
+        // optional set a codename of the application
+        define('CODENAME', config_site('codename'));
+
+        // set timezone
+        date_default_timezone_set(config_app('timezone'));
+
+        // aliasing Assets class name
+        class_alias('System\Libraries\Assets', 'Pull');
 
 		// aliasing Alerts class name
-		class_alias("Libraries\Alerts", "show");
+		class_alias("System\Libraries\Alerts", "Show");
 
-		// start session
-		session_start();
-	}
+        // start session
+        Session::init();
+    }
 
 }

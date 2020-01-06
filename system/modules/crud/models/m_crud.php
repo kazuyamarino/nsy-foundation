@@ -1,9 +1,9 @@
 <?php
-namespace Modules\Crud\Models;
+namespace System\Modules\Crud\Models;
 
 defined('ROOT') OR exit('No direct script access allowed');
 
-use Core\NSY_Model;
+use System\Core\NSY_Model;
 
 class m_crud extends NSY_Model
 {

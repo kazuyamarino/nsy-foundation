@@ -1,32 +1,28 @@
 <?php
-namespace Routes;
+namespace System\Routes;
 
 defined('ROOT') OR exit('No direct script access allowed');
 
-use Core\NSY_Router as route;
-use Core\NSY_Desk;
+use System\Core\NSY_Router as Route;
+use System\Core\NSY_Desk;
 
-Class Migration extends NSY_Desk
+Class Migration
 {
 
-	public function __construct()
-	{
-		/**
-		 * Instantiate NSY Desk
-		 */
-		$this->desk = new NSY_Desk;
+    public function __construct()
+    {
+        // Migration Route
+        Route::any(
+            'migup=(:any)', function ($class) {
+                NSY_Desk::mig_up($class);
+            }
+        );
 
-		// define Migration routes, the params format is :
-		// Format = route::type('url', 'namespace\class_controller@method')
-
-		// Migration Route
-		route::any('migup=(:any)', function($class) {
-			$this->desk->mig_up($class);
-		});
-
-		route::any('migdown=(:any)', function($class) {
-			$this->desk->mig_down($class);
-		});
-	}
+        Route::any(
+            'migdown=(:any)', function ($class) {
+                NSY_Desk::mig_down($class);
+            }
+        );
+    }
 
 }

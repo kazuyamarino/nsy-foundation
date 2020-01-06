@@ -1,9 +1,9 @@
 <?php
 
-namespace Razr;
+namespace System\Razr;
 
-use Razr\Exception\RuntimeException;
-use Razr\Exception\SyntaxErrorException;
+use System\Razr\Exception\RuntimeException;
+use System\Razr\Exception\SyntaxErrorException;
 
 class Lexer
 {
@@ -69,17 +69,17 @@ class Lexer
 
         while ($this->cursor < $this->end) {
             switch ($this->state) {
-                case self::STATE_DATA:
-                    $this->lexData();
-                    break;
+            case self::STATE_DATA:
+                $this->lexData();
+                break;
 
-                case self::STATE_OUTPUT:
-                    $this->lexOutput();
-                    break;
+            case self::STATE_OUTPUT:
+                $this->lexOutput();
+                break;
 
-                case self::STATE_DIRECTIVE:
-                    $this->lexDirective();
-                    break;
+            case self::STATE_DIRECTIVE:
+                $this->lexDirective();
+                break;
             }
         }
 

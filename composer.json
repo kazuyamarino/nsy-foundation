@@ -16,28 +16,23 @@
     },
     "autoload": {
 		"psr-4": {
-			"Razr\\": "system/core/Razr",
-            "Razr\\Directive\\": "system/core/Razr/Directive",
-            "Razr\\Exception\\": "system/core/Razr/Exception",
-            "Razr\\Extension\\": "system/core/Razr/Extension",
-            "Razr\\Loader\\": "system/core/Razr/Loader",
-            "Razr\\Storage\\": "system/core/Razr/Storage",
-            "Routes\\": "system/routes/",
-            "Libraries\\": "system/libraries/",
-            "Core\\": "system/core/",
-            "Models\\": "system/models/",
-            "Controllers\\": "system/controllers/",
-			"Modules\\Homepage\\Models\\": "system/modules/homepage/models/",
-			"Modules\\Homepage\\Controllers\\": "system/modules/homepage/controllers/",
-            "Modules\\Crud\\Models\\": "system/modules/crud/models/",
-			"Modules\\Crud\\Controllers\\": "system/modules/crud/controllers/"
+			"System\\": "system/"
         },
         "files": [
-			"system/helpers/NSY_Helpers.php",
-			"system/helpers/CI_Helpers.php"
+			"system/core/NSY_Helpers.php",
+			"system/helpers/Helpers_CI.php"
 		]
     },
     "config": {
         "vendor-dir": "system/vendor/"
-    }
+    },
+	"scripts": {
+	    "post-install-cmd": [
+			"composer dump-autoload -o",
+	        "@nsy_cli_install"
+	    ],
+	    "nsy_cli_install": [
+			"bash INSTALL.sh"
+	    ]
+	}
 }

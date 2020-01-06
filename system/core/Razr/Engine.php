@@ -1,16 +1,16 @@
 <?php
 
-namespace Razr;
+namespace System\Razr;
 
-use Razr\Directive\Directive;
-use Razr\Directive\DirectiveInterface;
-use Razr\Exception\RuntimeException;
-use Razr\Extension\CoreExtension;
-use Razr\Extension\ExtensionInterface;
-use Razr\Loader\LoaderInterface;
-use Razr\Storage\FileStorage;
-use Razr\Storage\Storage;
-use Razr\Storage\StringStorage;
+use System\Razr\Directive\Directive;
+use System\Razr\Directive\DirectiveInterface;
+use System\Razr\Exception\RuntimeException;
+use System\Razr\Extension\CoreExtension;
+use System\Razr\Extension\ExtensionInterface;
+use System\Razr\Loader\LoaderInterface;
+use System\Razr\Storage\FileStorage;
+use System\Razr\Storage\Storage;
+use System\Razr\Storage\StringStorage;
 
 class Engine
 {
@@ -118,7 +118,7 @@ class Engine
     /**
      * Gets a directives.
      *
-     * @param  string   $name
+     * @param  string $name
      * @return Directive
      */
     public function getDirective($name)
@@ -164,7 +164,7 @@ class Engine
     /**
      * Gets a function.
      *
-     * @param  string   $name
+     * @param  string $name
      * @return callable
      */
     public function getFunction($name)
@@ -193,8 +193,8 @@ class Engine
     /**
      * Adds a function.
      *
-     * @param string   $name
-     * @param callable $function
+     * @param  string   $name
+     * @param  callable $function
      * @throws RuntimeException
      */
     public function addFunction($name, $function)
@@ -304,7 +304,8 @@ class Engine
         try {
             return call_user_func_array(array($object, $name), $args);
         } catch (\BadMethodCallException $e) {
-            if (!$call) throw $e;
+            if (!$call) { throw $e;
+            }
         }
     }
 
@@ -391,7 +392,7 @@ class Engine
         if ($this->template instanceof FileStorage) {
 
             ob_start();
-            require $this->template;
+            include $this->template;
             $this->template = null;
 
             return ob_get_clean();

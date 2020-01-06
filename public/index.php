@@ -1,51 +1,54 @@
 <?php
 /**
+ * Attention, don't try to change the structure of the code, delete, or change.
+ * Because there is some code connected to the NSY system. So, be careful.
+ *
+ * Parses and verifies the doc comments for files.
+ *
+ * PHP version 7
+ *
+ * @category  PHP
+ * @package   NSY_PHP_Framework
+ * @author    Vikry Yuansah <admin@kazuyamarino.com>
+ * @copyright 2018-2020 Polimerz
+ * @license   https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt MIT License
+ * @link      https://github.com/kazuyamarino/nsy
+ */
+
+/**
  * Use NSY_System class
  */
-use Core\NSY_System;
+use System\Core\NSY_System;
 
 /**
  * Use NSY_Desk class
  */
-use Core\NSY_Desk;
+use System\Core\NSY_Desk;
 
 /**
  * Use NSY_Router class
  */
-use Core\NSY_Router;
+use System\Core\NSY_Router;
 
 /**
  * Use Web class
  */
-use Routes\Web;
+use System\Routes\Web;
 
 /**
  * Use Api class
  */
-use Routes\Api;
+use System\Routes\Api;
 
 /**
  * Use Migration class
  */
-use Routes\Migration;
+use System\Routes\Migration;
 
 /**
- * phpdotenv class
+ * Phpdotenv class
  */
 use Dotenv\Dotenv;
-
-/**
- * NSY Framework
- * MIT License
- * Copyright (c) 2019 Vikry Yuansah
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
-*/
 
 /*
 *---------------------------------------------------------------
@@ -55,21 +58,25 @@ use Dotenv\Dotenv;
 define('ROOT', str_replace("index.php", "", $_SERVER["SCRIPT_FILENAME"]));
 
 /**
- * The PSR-4 Autoloader, generate via composer (composer dump-autoload) *see composer.json
+ * The PSR-4 Autoloader
  * The default autoload.php file path.
  * You can set the file path itself according to your settings.
  */
-require(__DIR__ . '/../system/vendor/autoload.php');
+require __DIR__ . '/../system/vendor/autoload.php';
 
 /*
 *---------------------------------------------------------------
 * Check Config File
 *---------------------------------------------------------------
 */
-if ( !is_readable(config_app('nsy_sys_dir')) ) {
-	die('No NSY_System.php found, configure and rename System file to NSY_System.php in system/core.');
-} elseif ( !is_readable(config_app('env_checking_dir')) ) {
-	die('No .env file found, please check in the root folder.');
+// NSY System file check
+if (!is_readable(config_app('nsy_sys_dir')) ) {
+    die('NSY_System.php not found,  please check in system/core.');
+}
+
+// Env file check
+if (!is_readable(config_app('env_checking_dir')) ) {
+    die('env file not found, please check in root folder.');
 }
 
 /*
@@ -122,10 +129,9 @@ define('ENVIRONMENT', config_app('app_env'));
 * By default development will show errors but production will hide them.
 */
 /**
- * Instantiate Desk
+ * Get Application Environment
  */
-$desk = new NSY_Desk();
-$desk->error_switch();
+NSY_Desk::static_error_switch();
 
 /**
  * Execute matched routes

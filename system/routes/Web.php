@@ -1,36 +1,36 @@
 <?php
-namespace Routes;
+namespace System\Routes;
 
 defined('ROOT') OR exit('No direct script access allowed');
 
-use Core\NSY_Router as route;
+use System\Core\NSY_Router as Route;
 
 Class Web
 {
 
 	public function __construct()
 	{
-		// define Web routes, the params format is :
-		// Format = route::type('url', 'namespace\class_controller@method')
+		// define Web Routes, the params format is :
+		// Format = Route::type('url', 'namespace\class_controller@method')
 		// Route type : any, get, post, put, delete, options, & head
 
 		// MVC Route
-		route::any('', 'Controllers\Welcome@index');
+		Route::any('', 'System\Controllers\Welcome@index');
 
 		// HMVC Route
-		route::any('hmvc', 'Modules\Homepage\Controllers\Hello@index_hmvc');
+		Route::any('hmvc', 'System\Modules\Homepage\Controllers\Hello@index_hmvc');
 
 		// Crud Route
-		route::any('crud', 'Modules\Crud\Controllers\c_crud@crud_homepage');
-		route::any('crud/(:any)', 'Modules\Crud\Controllers\c_crud@crud_homepage');
-		route::any('crud/insert', 'Modules\Crud\Controllers\c_crud@crud_insert');
-		route::any('crud/delete/(:num)', 'Modules\Crud\Controllers\c_crud@crud_delete');
-		route::any('crud/multidelete', 'Modules\Crud\Controllers\c_crud@crud_multidelete');
-		route::any('crud/update/(:num)', 'Modules\Crud\Controllers\c_crud@crud_update');
-		route::any('crud/fetch/(:num)', 'Modules\Crud\Controllers\c_crud@crud_fetch');
+		Route::any('crud', 'System\Modules\Crud\Controllers\c_crud@crud_homepage');
+		Route::any('crud/(:any)', 'System\Modules\Crud\Controllers\c_crud@crud_homepage');
+		Route::any('crud/insert', 'System\Modules\Crud\Controllers\c_crud@crud_insert');
+		Route::any('crud/delete/(:num)', 'System\Modules\Crud\Controllers\c_crud@crud_delete');
+		Route::any('crud/multidelete', 'System\Modules\Crud\Controllers\c_crud@crud_multidelete');
+		Route::any('crud/update/(:num)', 'System\Modules\Crud\Controllers\c_crud@crud_update');
+		Route::any('crud/fetch/(:num)', 'System\Modules\Crud\Controllers\c_crud@crud_fetch');
 
-		// Data route
-		route::any('crud/data.json', 'Modules\Crud\Controllers\c_crud@crud_data');
+		// Data Route
+		Route::any('crud/data.json', 'System\Modules\Crud\Controllers\c_crud@crud_data');
 	}
 
 }

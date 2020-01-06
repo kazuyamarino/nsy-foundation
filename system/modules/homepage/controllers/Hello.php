@@ -1,13 +1,14 @@
 <?php
-namespace Modules\Homepage\Controllers;
+namespace System\Modules\Homepage\Controllers;
 
 defined('ROOT') OR exit('No direct script access allowed');
 
-use Core\NSY_Controller;
-use Models\Model_Welcome;
-use Modules\Homepage\Models\Model_Hello;
+use System\Core\NSY_Controller;
+use System\System\Models\Model_Welcome;
+use System\Modules\Homepage\Models\Model_Hello;
+use System\Libraries\Cookie;
+
 use Carbon\Carbon;
-use Libraries\Cookie;
 
 class Hello extends NSY_Controller
 {

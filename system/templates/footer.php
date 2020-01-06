@@ -10,7 +10,7 @@ defined('ROOT') OR exit('No direct script access allowed');
 				<div class="large-4 medium-6 cell">
 					<p><i class="fab fa-html5 fa-3x"></i>&nbsp;<i class="fab fa-css3 fa-3x"></i></p>
 					<p>This is a Sticky Footer.</p>
-					<p><a target="_blank" href="@( 'mailto:admin@kazuyamarino.com' )">Vikry Yuansah </a><i class="fas fa-forward"></i> <a href="@( base_url() )">Shyffon</a> @(VERSION), 2018 - @( date("Y") ).</p>
+					<p><a target="_blank" href="@( 'mailto:admin@kazuyamarino.com' )">Vikry Yuansah </a><i class="fas fa-forward"></i> <a href="@( base_url() )">Shyffon</a> @( get_version() ), 2018 - @( date("Y") ).</p>
 					<hr class="show-for-small-only"/>
 				</div>
 				<div class="large-4 medium-6 cell">
@@ -32,9 +32,9 @@ defined('ROOT') OR exit('No direct script access allowed');
 	</div>
 </footer>
 <!-- call footer assets method -->
-@( pull::footer_assets() )
+@( Pull::footer_assets() )
 
 <!-- call datatables init method -->
-@( pull::datatables_init() )
+@( Pull::datatables_init() )
 </body>
 </html>

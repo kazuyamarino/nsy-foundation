@@ -2,13 +2,13 @@
 defined('ROOT') OR exit('No direct script access allowed');
 ?>
 <!doctype html>
-<html class="no-js" lang="@( LANGUAGE_CODE )">
+<html class="no-js" lang="@( get_lang_code() )">
 <head>
 	<!-- call sweetalert -->
-	@( pull::sweetalert_init() )
+	@( Pull::sweetalert_init() )
 
 	<!-- call header assets method -->
-	@( pull::header_assets() )
+	@( Pull::header_assets() )
 </head>
 <body>
 	<!--[if lte IE 9]>

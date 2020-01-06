@@ -1,10 +1,7 @@
 <?php
-namespace Libraries;
-
-defined('ROOT') OR exit('No direct script access allowed');
-
 /**
- * Attention, don't try to change the structure of the code, delete, or change. Because there is some code connected to the NSY system. So, be careful.
+ * Attention, don't try to change the structure of the code, delete, or change.
+ * Because there is some code connected to the NSY system. So, be careful.
  *
  * PHP library for handling cookies.
  *
@@ -14,6 +11,9 @@ defined('ROOT') OR exit('No direct script access allowed');
  * @link      https://github.com/Josantonius/PHP-Cookie
  * @since     1.0.0
  */
+namespace System\Libraries;
+
+defined('ROOT') OR exit('No direct script access allowed');
 
 /**
  * Cookie handler.
@@ -114,7 +114,7 @@ class Cookie
      *
      * @return boolean
      */
-    public static function setPrefix($prefix)
+    public static function set_prefix($prefix)
     {
         if (!empty($prefix) && is_string($prefix)) {
             self::$prefix = $prefix;
@@ -131,7 +131,7 @@ class Cookie
      *
      * @return string
      */
-    public static function getPrefix()
+    public static function get_prefix()
     {
         return self::$prefix;
     }

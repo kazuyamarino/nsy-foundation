@@ -1,5 +1,5 @@
 <?php
-namespace Libraries;
+namespace System\Libraries;
 
 defined('ROOT') OR exit('No direct script access allowed');
 
