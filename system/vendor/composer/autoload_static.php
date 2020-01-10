@@ -247,7 +247,6 @@ class ComposerStaticInityour_suffixed
         'System\\Libraries\\LoadTime' => __DIR__ . '/../../..' . '/system/libraries/LoadTime.php',
         'System\\Libraries\\Session' => __DIR__ . '/../../..' . '/system/libraries/Session.php',
         'System\\Libraries\\Str' => __DIR__ . '/../../..' . '/system/libraries/Str.php',
-        'System\\Migrations\\timnas' => __DIR__ . '/../../..' . '/system/migrations/timnas.php',
         'System\\Models\\Model_Welcome' => __DIR__ . '/../../..' . '/system/models/Model_Welcome.php',
         'System\\Modules\\Crud\\Controllers\\c_crud' => __DIR__ . '/../../..' . '/system/modules/crud/controllers/c_crud.php',
         'System\\Modules\\Crud\\Models\\m_crud' => __DIR__ . '/../../..' . '/system/modules/crud/models/m_crud.php',

@@ -171,7 +171,6 @@ return array(
     'System\\Libraries\\LoadTime' => $baseDir . '/system/libraries/LoadTime.php',
     'System\\Libraries\\Session' => $baseDir . '/system/libraries/Session.php',
     'System\\Libraries\\Str' => $baseDir . '/system/libraries/Str.php',
-    'System\\Migrations\\timnas' => $baseDir . '/system/migrations/timnas.php',
     'System\\Models\\Model_Welcome' => $baseDir . '/system/models/Model_Welcome.php',
     'System\\Modules\\Crud\\Controllers\\c_crud' => $baseDir . '/system/modules/crud/controllers/c_crud.php',
     'System\\Modules\\Crud\\Models\\m_crud' => $baseDir . '/system/modules/crud/models/m_crud.php',
