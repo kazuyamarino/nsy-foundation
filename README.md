@@ -36,7 +36,7 @@ source ~/reloader.sh
 
 ##### 3. NSY Setup
 ```
-cd blog && nsy_setup
+cd blog && nsy --setup
 
 Enter directory name >
 blog
@@ -106,11 +106,11 @@ just that we'll ensure compatibility with the ones mentioned above.*
 *NSY Browser support information based on [Foundation Zurb Compatibility](https://foundation.zurb.com/sites/docs/compatibility.html).*
 
 ## User Guide.
-See [USERGUIDE.md](https://github.com/kazuyamarino/nsy/blob/master/docs/USERGUIDE.md).
+See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md).
 
 ## System Guide.
-Part 1 of [SYSGUIDE.md](https://github.com/kazuyamarino/nsy/blob/master/docs/SYSGUIDE_1.md).<br/>
-Part 2 of [SYSGUIDE.md](https://github.com/kazuyamarino/nsy/blob/master/docs/SYSGUIDE_2.md).
+Part 1 of [SYSGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md).<br/>
+Part 2 of [SYSGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md).
 
 ## License
 The code is available under the [MIT license](LICENSE.txt)..

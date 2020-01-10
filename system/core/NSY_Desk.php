@@ -15,7 +15,7 @@ class NSY_Desk
      * Function error handler
      *
      * @param  string $var_msg
-     * @return true|string
+     * @return void
      */
     public static function static_error_handler($var_msg = null)
     {
@@ -40,7 +40,7 @@ class NSY_Desk
     /**
      * Function error switch
      *
-     * @return true|false
+     * @return void
      */
     public static function static_error_switch()
     {
@@ -76,11 +76,11 @@ class NSY_Desk
      * Start migration
      *
      * @param  string $string
-     * @return string
+     * @return void
      */
     public static function mig_up($string = null)
     {
-        $classname = 'Migrations\\'.$string;
+        $classname = 'System\\Migrations\\'.$string;
 
         if (class_exists($classname) ) {
             $mig = new $classname;
@@ -99,11 +99,11 @@ class NSY_Desk
      * Rollback migration
      *
      * @param  string $string
-     * @return string
+     * @return void
      */
     public static function mig_down($string = null)
     {
-        $classname = 'Migrations\\'.$string;
+        $classname = 'System\\Migrations\\'.$string;
 
         if (class_exists($classname) ) {
              $mig = new $classname;
