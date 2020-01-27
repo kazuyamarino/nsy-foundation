@@ -12,7 +12,8 @@
 	"require": {
         "nesbot/carbon": "^2.29.1",
         "vlucas/phpdotenv": "^3.6.0",
-		"nicolab/php-ftp-client": "^1.5.2"
+		"nicolab/php-ftp-client": "^1.5.2",
+        "optimus/onion": "^1.0"
     },
     "autoload": {
 		"psr-4": {

@@ -25,6 +25,10 @@ class ComposerStaticInityour_suffixed
         array (
             'PhpOption\\' => 10,
         ),
+        'O' => 
+        array (
+            'Optimus\\Onion\\' => 14,
+        ),
         'D' => 
         array (
             'Dotenv\\' => 7,
@@ -59,6 +63,10 @@ class ComposerStaticInityour_suffixed
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'Optimus\\Onion\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/optimus/onion/src',
         ),
         'Dotenv\\' => 
         array (
@@ -145,6 +153,8 @@ class ComposerStaticInityour_suffixed
         'FtpClient\\FtpClient' => __DIR__ . '/..' . '/nicolab/php-ftp-client/src/FtpClient/FtpClient.php',
         'FtpClient\\FtpException' => __DIR__ . '/..' . '/nicolab/php-ftp-client/src/FtpClient/FtpException.php',
         'FtpClient\\FtpWrapper' => __DIR__ . '/..' . '/nicolab/php-ftp-client/src/FtpClient/FtpWrapper.php',
+        'Optimus\\Onion\\LayerInterface' => __DIR__ . '/..' . '/optimus/onion/src/LayerInterface.php',
+        'Optimus\\Onion\\Onion' => __DIR__ . '/..' . '/optimus/onion/src/Onion.php',
         'PhpOption\\LazyOption' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/LazyOption.php',
         'PhpOption\\None' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/None.php',
         'PhpOption\\Option' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/Option.php',

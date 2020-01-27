@@ -70,6 +70,8 @@ return array(
     'FtpClient\\FtpClient' => $vendorDir . '/nicolab/php-ftp-client/src/FtpClient/FtpClient.php',
     'FtpClient\\FtpException' => $vendorDir . '/nicolab/php-ftp-client/src/FtpClient/FtpException.php',
     'FtpClient\\FtpWrapper' => $vendorDir . '/nicolab/php-ftp-client/src/FtpClient/FtpWrapper.php',
+    'Optimus\\Onion\\LayerInterface' => $vendorDir . '/optimus/onion/src/LayerInterface.php',
+    'Optimus\\Onion\\Onion' => $vendorDir . '/optimus/onion/src/Onion.php',
     'PhpOption\\LazyOption' => $vendorDir . '/phpoption/phpoption/src/PhpOption/LazyOption.php',
     'PhpOption\\None' => $vendorDir . '/phpoption/phpoption/src/PhpOption/None.php',
     'PhpOption\\Option' => $vendorDir . '/phpoption/phpoption/src/PhpOption/Option.php',
