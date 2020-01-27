@@ -1,6 +1,3 @@
-<?php
-defined('ROOT') OR exit('No direct script access allowed');
-?>
 <div class="content">
 	<div class="grid-x grid-padding-x">
 		<div class="large-12 cell">

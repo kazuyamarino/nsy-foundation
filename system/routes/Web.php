@@ -1,8 +1,6 @@
 <?php
 namespace System\Routes;
 
-defined('ROOT') OR exit('No direct script access allowed');
-
 use System\Core\NSY_Router as Route;
 
 Class Web
@@ -15,22 +13,42 @@ Class Web
 		// Route type : any, get, post, put, delete, options, & head
 
 		// MVC Route
-		Route::any('', 'System\Controllers\Welcome@index');
+		Route::get('/', function() {
+			Route::goto('Welcome@index');
+		});
 
 		// HMVC Route
-		Route::any('hmvc', 'System\Modules\Homepage\Controllers\Hello@index_hmvc');
+		Route::get('/hmvc', function() {
+			Route::goto('Homepage\Hello@index_hmvc');
+		});
 
 		// Crud Route
-		Route::any('crud', 'System\Modules\Crud\Controllers\c_crud@crud_homepage');
-		Route::any('crud/(:any)', 'System\Modules\Crud\Controllers\c_crud@crud_homepage');
-		Route::any('crud/insert', 'System\Modules\Crud\Controllers\c_crud@crud_insert');
-		Route::any('crud/delete/(:num)', 'System\Modules\Crud\Controllers\c_crud@crud_delete');
-		Route::any('crud/multidelete', 'System\Modules\Crud\Controllers\c_crud@crud_multidelete');
-		Route::any('crud/update/(:num)', 'System\Modules\Crud\Controllers\c_crud@crud_update');
-		Route::any('crud/fetch/(:num)', 'System\Modules\Crud\Controllers\c_crud@crud_fetch');
-
-		// Data Route
-		Route::any('crud/data.json', 'System\Modules\Crud\Controllers\c_crud@crud_data');
+		Route::group('/crud', function() {
+			Route::get('', function() {
+				Route::goto('Crud\c_crud@crud_homepage');
+			});
+			Route::get('/(:any)', function($message) {
+				Route::goto('Crud\c_crud@crud_homepage', $message);
+			});
+			Route::post('/insert', function() {
+				Route::goto('Crud\c_crud@crud_insert');
+			});
+			Route::get('/delete/(:num)', function($id) {
+				Route::goto('Crud\c_crud@crud_delete', $id);
+			});
+			Route::post('/multidelete', function() {
+				Route::goto('Crud\c_crud@crud_multidelete');
+			});
+			Route::post('/update/(:num)', function($id) {
+				Route::goto('Crud\c_crud@crud_update', $id);
+			});
+			Route::get('/fetch/(:num)', function($id) {
+				Route::goto('Crud\c_crud@crud_fetch', $id);
+			});
+			Route::get('/data.json', function() {
+				Route::goto('Crud\c_crud@crud_data');
+			});
+		});
 	}
 
 }

@@ -1,6 +1,4 @@
 <?php
-defined('ROOT') OR exit('No direct script access allowed');
-
 // Site config
 return [
 
@@ -62,7 +60,7 @@ return [
     | Define version of the application
 	|
     */
-	'version' => 'v3.10',
+	'version' => 'v3.12.0',
 
 	/*
     |--------------------------------------------------------------------------

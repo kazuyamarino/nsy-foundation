@@ -1,28 +1,26 @@
 <?php
 namespace System\Routes;
 
-defined('ROOT') OR exit('No direct script access allowed');
-
 use System\Core\NSY_Router as Route;
 use System\Core\NSY_Desk;
 
 Class Migration
 {
 
-    public function __construct()
-    {
-        // Migration Route
-        Route::any(
-            'migup=(:any)', function ($class) {
-                NSY_Desk::mig_up($class);
-            }
-        );
+	public function __construct()
+	{
+		// Migration Route
+		Route::any(
+			'/migup=(:any)', function ($class) {
+				NSY_Desk::mig_up($class);
+			}
+		);
 
-        Route::any(
-            'migdown=(:any)', function ($class) {
-                NSY_Desk::mig_down($class);
-            }
-        );
-    }
+		Route::any(
+			'/migdown=(:any)', function ($class) {
+				NSY_Desk::mig_down($class);
+			}
+		);
+	}
 
 }

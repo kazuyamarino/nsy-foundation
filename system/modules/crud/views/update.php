@@ -1,6 +1,3 @@
-<?php
-defined('ROOT') OR exit('No direct script access allowed');
-?>
 <div class="content">
 	<hr>
 	<div class="grid-x grid-padding-x">

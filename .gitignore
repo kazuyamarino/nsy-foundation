@@ -5,3 +5,6 @@ src/**
 env
 public/node_modules/**
 public/package-lock.json
+public/package.json
+.htaccess
+public/.htaccess

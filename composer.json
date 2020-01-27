@@ -10,17 +10,16 @@
         }
     ],
 	"require": {
-        "nesbot/carbon": "^2.28.0",
+        "nesbot/carbon": "^2.29.1",
         "vlucas/phpdotenv": "^3.6.0",
-		"nicolab/php-ftp-client": "^1.5.1"
+		"nicolab/php-ftp-client": "^1.5.2"
     },
     "autoload": {
 		"psr-4": {
 			"System\\": "system/"
         },
         "files": [
-			"system/core/NSY_Helpers.php",
-			"system/helpers/Helpers_CI.php"
+			"system/core/NSY_Helpers.php"
 		]
     },
     "config": {

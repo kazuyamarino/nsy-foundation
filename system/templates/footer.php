@@ -1,6 +1,3 @@
-<?php
-defined('ROOT') OR exit('No direct script access allowed');
-?>
 <!-- Footer are 'sticky' -->
 <footer class="footer">
 	<div style="margin-bottom:1rem;" class="grid-x grid-padding-x">

@@ -8,12 +8,14 @@ run_setup() {
 
 		if [ ! -e ./env ]
 		then
-			cp docs/env.example/env.example ./env
 			cp docs/apache/for_public/.htaccess ./public/.htaccess
 			cp docs/apache/for_root/.htaccess ./.htaccess
+			cp .cli/tmp/env.example ./env
+			cp .cli/tmp/env.example docs/env.example/env.example
 			cp .cli/tmp/system.js ./public/js/config/system.js
 			cp .cli/tmp/default ./docs/nginx/sites-enabled/default
 			sed -i "s/shyffon/$filename/g" ./env
+			sed -i "s/shyffon/$filename/g" ./docs/env.example/env.example
 			sed -i "s/shyffon/$filename/g" ./public/js/config/system.js
 			sed -i "s/shyffon/$filename/g" ./docs/nginx/sites-enabled/default
 

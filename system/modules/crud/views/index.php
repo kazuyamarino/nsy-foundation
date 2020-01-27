@@ -1,6 +1,3 @@
-<?php
-defined('ROOT') OR exit('No direct script access allowed');
-?>
 <!-- call alerts method -->
 @( Show::pull_alerts($message) )
 <div class="content">

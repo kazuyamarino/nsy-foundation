@@ -7,8 +7,6 @@ use System\Modules\Crud\Models\m_crud;
 
 use Carbon\Carbon;
 
-defined('ROOT') OR exit('No direct script access allowed');
-
 class c_crud extends NSY_Controller
 {
 
@@ -62,9 +60,9 @@ class c_crud extends NSY_Controller
 	{
 		// defined variables
 		$user_code     = $this->m_crud->get_user_code();
-		$user_name     = secure_input(post('username'));
-		$user_password = secure_input(sha1(post('password')));
-		$user_status   = secure_input(post('status'));
+		$user_name     = secure_input($this->post('username'));
+		$user_password = secure_input(sha1($this->post('password')));
+		$user_status   = secure_input($this->post('status'));
 		$date          = gmdate('Y-m-d H:i:s',time()+60*60*7);
 
 		// if username, password, & user status is empty or no input, display the message
@@ -108,7 +106,7 @@ class c_crud extends NSY_Controller
 	public function crud_multidelete()
 	{
 		// defined variables
-		$ids  = post('admin_id');
+		$ids  = $this->post('admin_id');
 
 		// check if variable empty
 		if ( not_filled($ids) ) {
@@ -127,10 +125,10 @@ class c_crud extends NSY_Controller
 	public function crud_update($id)
 	{
 		// siapkan variable update query
-		$user_name      = secure_input(post('username'));
-		$user_password  = secure_input(sha1(post('password')));
-		$check_password = secure_input(post('password'));
-		$user_status    = secure_input(post('status'));
+		$user_name      = secure_input($this->post('username'));
+		$user_password  = secure_input(sha1($this->post('password')));
+		$check_password = secure_input($this->post('password'));
+		$user_status    = secure_input($this->post('status'));
 		$date           = gmdate('Y-m-d H:i:s',time()+60*60*7);
 
 		// check if variable empty
