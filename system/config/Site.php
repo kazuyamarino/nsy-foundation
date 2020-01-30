@@ -72,6 +72,6 @@ return [
 	| Define codename of the application
 	|
 	*/
-	'codename' => 'Vylma'
+	'codename' => 'Shyffon'
 
 ];
