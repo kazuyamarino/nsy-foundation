@@ -9,7 +9,7 @@ class ComposerStaticInityour_suffixed
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
-        'c032ae56f5efc7e52e152007b45ecc6c' => __DIR__ . '/../../..' . '/system/helpers/CodeIgniter_Helpers.php',
+        '0442ae875f01b8697b432b16bc462f11' => __DIR__ . '/../../..' . '/system/helpers/CodeIgniter_Helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -236,11 +236,9 @@ class ComposerStaticInityour_suffixed
         'System\\Core\\Migration_Impl' => __DIR__ . '/../../..' . '/system/core/NSY_Interface.php',
         'System\\Core\\NSY_AssetManager' => __DIR__ . '/../../..' . '/system/core/NSY_AssetManager.php',
         'System\\Core\\NSY_CSRF' => __DIR__ . '/../../..' . '/system/core/NSY_CSRF.php',
-        'System\\Core\\NSY_Controller' => __DIR__ . '/../../..' . '/system/core/NSY_Controller.php',
         'System\\Core\\NSY_DB' => __DIR__ . '/../../..' . '/system/core/NSY_DB.php',
         'System\\Core\\NSY_Desk' => __DIR__ . '/../../..' . '/system/core/NSY_Desk.php',
         'System\\Core\\NSY_Migration' => __DIR__ . '/../../..' . '/system/core/NSY_Migration.php',
-        'System\\Core\\NSY_Model' => __DIR__ . '/../../..' . '/system/core/NSY_Model.php',
         'System\\Core\\NSY_Router' => __DIR__ . '/../../..' . '/system/core/NSY_Router.php',
         'System\\Core\\NSY_System' => __DIR__ . '/../../..' . '/system/core/NSY_System.php',
         'System\\Core\\NSY_XSS_Filter' => __DIR__ . '/../../..' . '/system/core/NSY_XSS_Filter.php',

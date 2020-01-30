@@ -20,7 +20,7 @@
 			"System\\": "system/"
         },
         "files": [
-			"system/core/NSY_Helpers.php"
+			"system/helpers/CodeIgniter_Helpers.php"
 		]
     },
     "config": {
