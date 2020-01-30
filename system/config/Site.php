@@ -12,7 +12,7 @@ return [
 	| This value is for <title> tag.
 	|
 	*/
-	'sitetitle' => 'Vylma - NSY PHP Framework + Bulma CSS',
+	'sitetitle' => 'Shyffon - NSY PHP Framework + Foundation CSS',
 
 	/*
 	|--------------------------------------------------------------------------
