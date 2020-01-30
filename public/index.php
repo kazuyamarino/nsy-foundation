@@ -16,14 +16,21 @@
 */
 
 /**
+* The PSR-4 Autoloader
+* The default autoload.php file path.
+* You can set the file path itself according to your settings.
+*/
+require __DIR__ . '/../system/vendor/autoload.php';
+
+/**
+* NSY GLobal Helpers
+*/
+require_once __DIR__ . '/../system/core/NSY_Helpers_Global.php';
+
+/**
 * Use NSY_System class
 */
 use System\Core\NSY_System;
-
-/**
-* Use Aliases class
-*/
-use System\Libraries\Aliases;
 
 /**
 * Use NSY_Desk class
@@ -36,99 +43,28 @@ use System\Core\NSY_Desk;
 use System\Core\NSY_Router;
 
 /**
-* Use Web class
-*/
-use System\Routes\Web;
-
-/**
-* Use Api class
-*/
-use System\Routes\Api;
-
-/**
-* Use Migration class
-*/
-use System\Routes\Migration;
-
-/**
 * Phpdotenv class
 */
 use Dotenv\Dotenv;
 
 /*
 *---------------------------------------------------------------
-* ROOT path
+* Check System File
 *---------------------------------------------------------------
 */
-define('ROOT', str_replace("index.php", "", $_SERVER["SCRIPT_FILENAME"]));
-
-/**
-* The PSR-4 Autoloader
-* The default autoload.php file path.
-* You can set the file path itself according to your settings.
-*/
-require __DIR__ . '/../system/vendor/autoload.php';
+NSY_Desk::register_system();
 
 /*
 *---------------------------------------------------------------
 * Check Config File
 *---------------------------------------------------------------
 */
-// NSY System file check
-if (!is_readable(config_app('nsy_sys_dir')) ) {
-	die('NSY_System.php not found,  please check in system/core.');
-}
-
-// Env file check
-if (!is_readable(config_app('env_checking_dir')) ) {
-	die('env file not found, please check in root folder.');
-}
-
-/*
-*---------------------------------------------------------------
-* Don't change anythings about this instantiate
-*---------------------------------------------------------------
-*/
-/**
-* Load Environment Variables from .env file
-*/
-$dotenv = Dotenv::create(config_app('env_dir'), config_app('env_file'));
-$dotenv->load();
+NSY_Desk::register_config();
 
 /**
 * Instantiate System
 */
 new NSY_System();
-
-/**
-* Instantiate Aliases
-*/
-new Aliases();
-
-/**
-* Instantiate Web route
-*/
-new Web();
-
-/**
-* Instantiate Api route
-*/
-new Api();
-
-/**
-* Instantiate Migration route
-*/
-new Migration();
-
-/*
-|--------------------------------------------------------------------------
-| Application Environment
-|--------------------------------------------------------------------------
-|
-| you can set this value on 'System/config/app.php'.
-|
-*/
-define('ENVIRONMENT', config_app('app_env'));
 
 /*
 *---------------------------------------------------------------
@@ -142,6 +78,11 @@ define('ENVIRONMENT', config_app('app_env'));
 * Get Application Environment
 */
 NSY_Desk::static_error_switch();
+
+/**
+* Routing System
+*/
+NSY_Desk::register_route();
 
 /**
 * Execute matched routes

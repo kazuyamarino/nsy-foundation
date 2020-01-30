@@ -175,16 +175,6 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
-	| Default NSY System Path
-	|--------------------------------------------------------------------------
-	|
-	| define the NSY System file path
-	|
-	*/
-	'nsy_sys_dir' => __DIR__ . '/../core/NSY_System.php',
-
-	/*
-	|--------------------------------------------------------------------------
 	| Default Environment Variable File name
 	|--------------------------------------------------------------------------
 	|
@@ -195,22 +185,27 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
-	| Default env File Checking
+	| Default System Directory name
 	|--------------------------------------------------------------------------
 	|
-	| define the env file path
+	| set the default system directory name
 	|
 	*/
-	'env_checking_dir' => __DIR__ . '/../../env',
+	'sys_dir' => 'system',
 
 	/*
 	|--------------------------------------------------------------------------
-	| Default env File Path Location
+	| Class Aliases
 	|--------------------------------------------------------------------------
 	|
-	| define the env file path
+	| This array of class aliases will be registered when this application
+    | is started. However, feel free to register as many as you wish as
+    | the aliases are "lazy" loaded so they don't hinder performance.
 	|
 	*/
-	'env_dir' => __DIR__ . '/../..'
+	'aliases' => [
+        'Route' => System\Core\NSY_Router::class,
+        'Add' => System\Core\NSY_AssetManager::class
+	]
 
 ];

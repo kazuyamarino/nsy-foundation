@@ -9,7 +9,7 @@ class ComposerStaticInityour_suffixed
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
-        '9accecb42d60c731f57c3dcc74b42c5c' => __DIR__ . '/../../..' . '/system/core/NSY_Helpers.php',
+        'c032ae56f5efc7e52e152007b45ecc6c' => __DIR__ . '/../../..' . '/system/helpers/CodeIgniter_Helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -231,6 +231,8 @@ class ComposerStaticInityour_suffixed
         'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'System\\Controllers\\Welcome' => __DIR__ . '/../../..' . '/system/controllers/Welcome.php',
+        'System\\Core\\DB' => __DIR__ . '/../../..' . '/system/core/DB.php',
+        'System\\Core\\Load' => __DIR__ . '/../../..' . '/system/core/Load.php',
         'System\\Core\\Migration_Impl' => __DIR__ . '/../../..' . '/system/core/NSY_Interface.php',
         'System\\Core\\NSY_AssetManager' => __DIR__ . '/../../..' . '/system/core/NSY_AssetManager.php',
         'System\\Core\\NSY_CSRF' => __DIR__ . '/../../..' . '/system/core/NSY_CSRF.php',
@@ -242,9 +244,6 @@ class ComposerStaticInityour_suffixed
         'System\\Core\\NSY_Router' => __DIR__ . '/../../..' . '/system/core/NSY_Router.php',
         'System\\Core\\NSY_System' => __DIR__ . '/../../..' . '/system/core/NSY_System.php',
         'System\\Core\\NSY_XSS_Filter' => __DIR__ . '/../../..' . '/system/core/NSY_XSS_Filter.php',
-        'System\\Libraries\\Alerts' => __DIR__ . '/../../..' . '/system/libraries/Alerts.php',
-        'System\\Libraries\\Aliases' => __DIR__ . '/../../..' . '/system/libraries/Aliases.php',
-        'System\\Libraries\\Assets' => __DIR__ . '/../../..' . '/system/libraries/Assets.php',
         'System\\Libraries\\Cookie' => __DIR__ . '/../../..' . '/system/libraries/Cookie.php',
         'System\\Libraries\\Curl' => __DIR__ . '/../../..' . '/system/libraries/Curl.php',
         'System\\Libraries\\Exception\\JsonException' => __DIR__ . '/../../..' . '/system/libraries/Exception/JsonException.php',
@@ -295,9 +294,6 @@ class ComposerStaticInityour_suffixed
         'System\\Razr\\Storage\\StringStorage' => __DIR__ . '/../../..' . '/system/core/Razr/Storage/StringStorage.php',
         'System\\Razr\\Token' => __DIR__ . '/../../..' . '/system/core/Razr/Token.php',
         'System\\Razr\\TokenStream' => __DIR__ . '/../../..' . '/system/core/Razr/TokenStream.php',
-        'System\\Routes\\Api' => __DIR__ . '/../../..' . '/system/routes/Api.php',
-        'System\\Routes\\Migration' => __DIR__ . '/../../..' . '/system/routes/Migration.php',
-        'System\\Routes\\Web' => __DIR__ . '/../../..' . '/system/routes/Web.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

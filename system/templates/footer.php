@@ -29,9 +29,9 @@
 	</div>
 </footer>
 <!-- call footer assets method -->
-@( Pull::footer_assets() )
+@( footer_assets() )
 
 <!-- call datatables init method -->
-@( Pull::datatables_init() )
+@( datatables_init() )
 </body>
 </html>

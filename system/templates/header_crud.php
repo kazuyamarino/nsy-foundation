@@ -2,10 +2,10 @@
 <html class="no-js" lang="@( get_lang_code() )">
 <head>
 	<!-- call sweetalert -->
-	@( Pull::sweetalert_init() )
+	@( sweetalert_init() )
 
 	<!-- call header assets method -->
-	@( Pull::header_assets() )
+	@( header_assets() )
 </head>
 <body>
 	<!--[if lte IE 9]>

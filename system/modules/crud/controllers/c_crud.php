@@ -1,20 +1,14 @@
 <?php
 namespace System\Modules\Crud\Controllers;
 
-use System\Core\NSY_Controller;
+use System\Core\Load;
 use System\Libraries\Cookie;
 use System\Modules\Crud\Models\m_crud;
 
 use Carbon\Carbon;
 
-class c_crud extends NSY_Controller
+class c_crud extends Load
 {
-
-	public function __construct()
-	{
-		// Instantiate Model Crud
-		$this->m_crud = new m_crud;
-	}
 
 	public function crud_homepage($message = '')
 	{
@@ -26,7 +20,9 @@ class c_crud extends NSY_Controller
 		// call header page from template folder
 		// call index page from hmvc view folder
 		// call footer page from template folder
-		$this->load_template("header_crud", $arr)->load_view("crud", "index", $arr)->load_template("footer_crud", $arr);
+		Load::template("header_crud", $arr);
+		Load::view("crud", "index", $arr);
+		Load::template("footer_crud", $arr);
 	}
 
 	public function crud_fetch($id)
@@ -38,19 +34,21 @@ class c_crud extends NSY_Controller
 
 		// call the method fetch_update
 		$arr = [
-			'data' => $this->m_crud->fetch_update($param)
+			'data' => Load::model('Crud\m_crud')->fetch_update($param)
 		];
 
 		// call header page from template folder
 		// call update page from hmvc view folder
 		// call footer page from template folder
-		$this->load_template("header_crud", $arr)->load_view("crud", "update", $arr)->load_template("footer_crud", $arr);
+		Load::template("header_crud", $arr);
+		Load::view("crud", "update", $arr);
+		Load::template("footer_crud", $arr);
 	}
 
 	public function crud_data()
 	{
 		// call the method get_data
-		$d = $this->m_crud->get_data();
+		$d = Load::model('Crud\m_crud')->get_data();
 
 		// show result
 		echo $d;
@@ -59,10 +57,10 @@ class c_crud extends NSY_Controller
 	public function crud_insert()
 	{
 		// defined variables
-		$user_code     = $this->m_crud->get_user_code();
-		$user_name     = secure_input($this->post('username'));
-		$user_password = secure_input(sha1($this->post('password')));
-		$user_status   = secure_input($this->post('status'));
+		$user_code     = Load::model('Crud\m_crud')->get_user_code();
+		$user_name     = secure_input(post('username'));
+		$user_password = secure_input(sha1(post('password')));
+		$user_status   = secure_input(post('status'));
 		$date          = gmdate('Y-m-d H:i:s',time()+60*60*7);
 
 		// if username, password, & user status is empty or no input, display the message
@@ -82,7 +80,7 @@ class c_crud extends NSY_Controller
 			];
 
 			// call the method insert_data
-			$this->m_crud->insert_data($param);
+			Load::model('Crud\m_crud')->insert_data($param);
 
 			// redirect to page url
 			redirect("crud/register-success");
@@ -97,7 +95,7 @@ class c_crud extends NSY_Controller
 		];
 
 		// call the method delete_data
-		$this->m_crud->delete_data($param);
+		Load::model('Crud\m_crud')->delete_data($param);
 
 		// redirect to page url
 		redirect("crud/delete-success");
@@ -106,16 +104,16 @@ class c_crud extends NSY_Controller
 	public function crud_multidelete()
 	{
 		// defined variables
-		$ids  = $this->post('admin_id');
+		$ids  = post('admin_id');
 
 		// check if variable empty
 		if ( not_filled($ids) ) {
 			redirect("crud/must-select");
 		} else {
-			$data = $this->bind(":id")->vars($ids)->sequence();
+			$data = sequence(":id", $ids);
 
 			// call the method delete_data
-			$this->m_crud->multidelete_data($data);
+			Load::model('Crud\m_crud')->multidelete_data($data);
 
 			// redirect to page url
 			redirect("crud/delete-success");
@@ -125,10 +123,10 @@ class c_crud extends NSY_Controller
 	public function crud_update($id)
 	{
 		// siapkan variable update query
-		$user_name      = secure_input($this->post('username'));
-		$user_password  = secure_input(sha1($this->post('password')));
-		$check_password = secure_input($this->post('password'));
-		$user_status    = secure_input($this->post('status'));
+		$user_name      = secure_input(post('username'));
+		$user_password  = secure_input(sha1(post('password')));
+		$check_password = secure_input(post('password'));
+		$user_status    = secure_input(post('status'));
 		$date           = gmdate('Y-m-d H:i:s',time()+60*60*7);
 
 		// check if variable empty
@@ -143,7 +141,7 @@ class c_crud extends NSY_Controller
 			];
 
 			// call the method update_data
-			$this->m_crud->update_data_password_null($param);
+			Load::model('Crud\m_crud')->update_data_password_null($param);
 
 			// redirect to page url
 			redirect("crud/update-success");
@@ -158,7 +156,7 @@ class c_crud extends NSY_Controller
 			];
 
 			// call the method update_data
-			$this->m_crud->update_data_password_yes($param);
+			Load::model('Crud\m_crud')->update_data_password_yes($param);
 
 			// redirect to page url
 			redirect("crud/update-success");

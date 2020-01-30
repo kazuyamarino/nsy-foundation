@@ -1,5 +1,5 @@
 <!-- call alerts method -->
-@( Show::pull_alerts($message) )
+@( pull_alerts($message) )
 <div class="content">
 	<hr>
 	<div class="grid-x grid-padding-x align-center">

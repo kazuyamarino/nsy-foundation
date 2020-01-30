@@ -1,24 +1,17 @@
 <?php
-namespace System\Libraries;
-
 /**
-* This is the library of NSY Fremwork
-* Attention, don't try to change the structure of the code, delete, or change.
-* Because there is some code connected to the NSY system. So, be careful.
+ * NSY Class Aliases
+ * Attention, don't try to change the structure of the code, delete, or change.
+ * Because there is some code connected to the NSY system. So, be careful.
 */
-class Aliases
-{
+$arr = config_app('aliases');
 
-	/**
-	* Defined variable for NSY Aliases
-	*/
-	public function __construct()
-	{
-		// aliasing Assets class
-		class_alias('System\Libraries\Assets', 'Pull');
-
-		// aliasing Alerts class name
-		class_alias("System\Libraries\Alerts", "Show");
-	}
-
+if ( is_array($arr) ) {
+	foreach( $arr as $key => $value ) {
+		class_alias($value, $key);
+	};
+} else {
+	$var_msg = 'The variable <mark>aliases</mark> key in the <strong>config/App.php</strong> is improper or not an array';
+	NSY_Desk::static_error_handler($var_msg);
+	exit();
 }

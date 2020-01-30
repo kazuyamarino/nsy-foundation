@@ -1,17 +1,10 @@
 <?php
 namespace System\Controllers;
 
-use System\Core\NSY_Controller;
+use System\Core\Load;
 
-class cm_ctrl extends NSY_Controller
+class cm_ctrl extends Load
 {
-
-	public function __construct()
-	{
-		/*
-		Instantiate a model class here!
-		 */
-	}
 
 	public function yourFunction()
 	{

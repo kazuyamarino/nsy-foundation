@@ -8,5 +8,5 @@ $baseDir = dirname(dirname($vendorDir));
 return array(
     '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
     '320cde22f66dd4f5d3fd621d3e88b98f' => $vendorDir . '/symfony/polyfill-ctype/bootstrap.php',
-    '9accecb42d60c731f57c3dcc74b42c5c' => $baseDir . '/system/core/NSY_Helpers.php',
+    'c032ae56f5efc7e52e152007b45ecc6c' => $baseDir . '/system/helpers/CodeIgniter_Helpers.php',
 );

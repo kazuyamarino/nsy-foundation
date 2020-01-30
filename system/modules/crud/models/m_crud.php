@@ -1,16 +1,16 @@
 <?php
 namespace System\Modules\Crud\Models;
 
-use System\Core\NSY_Model;
+use System\Core\DB;
 
-class m_crud extends NSY_Model
+class m_crud
 {
 
 	public function get_data()
 	{
 		// query to display the data table in json form
 		$query = "SELECT * FROM tbl_users";
-		$data = $this->connect()->query($query)->style(FETCH_ASSOC)->fetch_all();
+		$data = DB::connect()->query($query)->style(FETCH_ASSOC)->fetch_all();
 		$json_data = fetch_json([
 			"data" => $data
 		]);
@@ -22,7 +22,7 @@ class m_crud extends NSY_Model
 	{
 		// get last id from tbl_users
 		$q_select_id = "SELECT MAX(id) FROM tbl_users";
-		$last_id = $this->connect()->query($q_select_id)->fetch_column();
+		$last_id = DB::connect()->query($q_select_id)->fetch_column();
 		ternary( not_filled($last_id), $last_id = 0, $last_id ); // if last id is 0 then give it 0 value
 
 		// get last user_code second number from tbl_users
@@ -30,7 +30,7 @@ class m_crud extends NSY_Model
 								id as id,
 								SUBSTR(user_code, 2, 1) as ucode
 							FROM tbl_users ORDER BY id DESC LIMIT 1";
-		$get_ucode_num = $this->connect()->query($q_select_ucode)->style(FETCH_ASSOC)->fetch();
+		$get_ucode_num = DB::connect()->query($q_select_ucode)->style(FETCH_ASSOC)->fetch();
 		ternary( $get_ucode_num['ucode'] == 9, ($last_ucode = 0), ($last_ucode = 1 + $get_ucode_num['ucode']) ); // if ucode reach 9 then reset it to 0
 
 		// generate user code and setting up variables
@@ -59,21 +59,21 @@ class m_crud extends NSY_Model
 								:create_date,
 								:update_date,
 								:adds_date )";
-		$this->connect()->query($q_insert_user)->vars($param)->exec();
+		DB::connect()->query($q_insert_user)->vars($param)->exec();
 	}
 
 	public function delete_data($param)
 	{
 		// query to delete the data table
 		$query = "DELETE FROM tbl_users WHERE id = :id";
-		$this->connect()->query($query)->vars($param)->exec();
+		DB::connect()->query($query)->vars($param)->exec();
 	}
 
 	public function multidelete_data($data)
 	{
 		// query to delete more than one data table
 		$query = "DELETE FROM tbl_users WHERE id IN ($data[0])";
-		$this->connect()->query($query)->vars($data[1])->exec();
+		DB::connect()->query($query)->vars($data[1])->exec();
 	}
 
 	public function update_data_password_null($param)
@@ -87,7 +87,7 @@ class m_crud extends NSY_Model
 					update_date   = :update_date,
 					adds_date     = adds_date
 				WHERE id = :id";
-		$this->connect()->query($query)->vars($param)->exec();
+		DB::connect()->query($query)->vars($param)->exec();
 	}
 
 	public function update_data_password_yes($param)
@@ -101,14 +101,14 @@ class m_crud extends NSY_Model
 					update_date   = :update_date,
 					adds_date     = adds_date
 				WHERE id = :id";
-		$this->connect()->query($query)->vars($param)->exec();
+		DB::connect()->query($query)->vars($param)->exec();
 	}
 
 	public function fetch_update($param)
 	{
 		// fetch data from the data table for updating purposes
 		$query = "SELECT * FROM tbl_users WHERE id = :id";
-		$data = $this->connect()
+		$data = DB::connect()
 					->query($query)
 					->vars($param)
 					->style(FETCH_ASSOC)

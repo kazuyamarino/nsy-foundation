@@ -8,9 +8,9 @@
 	</div>
 </footer>
 <!-- call footer assets method -->
-@( Pull::footer_assets() )
+@( footer_assets() )
 
 <!-- call datatables init method -->
-@( Pull::datatables_crud_init() )
+@( datatables_crud_init() )
 </body>
 </html>
