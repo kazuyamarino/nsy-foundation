@@ -2,9 +2,11 @@
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 
 src/**
-env
+/env
+/.htaccess
+/.travis.yml
+/phpunit.xml
 public/node_modules/**
 public/package-lock.json
 public/package.json
-.htaccess
 public/.htaccess
