@@ -1,29 +1,26 @@
 <?php
 namespace System\Core;
 
-/**
-* Copyright (c) 2015, Leon Sorokin
-* Modified 2020, Vikry Yuansah
-* All rights reserved. (MIT Licensed)
-*
-* Route66 - PHP micro-router as NSY Router System
-*/
-
 use Optimus\Onion\Onion;
 
-class NSY_Router
-{
-
-	static $base	= '';
-	static $before	= null;
-	static $after	= null;
-	static $mounter	= null;
-	static $routes	= [];
-	static $names	= [];
-	static $cache	= [];
-	static $nomatch	= null;
-	static $response = null;
-	static $rxalias	= [
+/**
+* @method static Macaw get(string $route, Callable $callback)
+* @method static Macaw post(string $route, Callable $callback)
+* @method static Macaw put(string $route, Callable $callback)
+* @method static Macaw delete(string $route, Callable $callback)
+* @method static Macaw options(string $route, Callable $callback)
+* @method static Macaw head(string $route, Callable $callback)
+* NoahBuscher/Macaw https://github.com/noahbuscher/macaw/blob/master/Macaw.php
+*/
+class NSY_Router {
+	public static $base	= '';
+    public static $halts = false;
+	public static $response = null;
+    public static $routes = array();
+    public static $methods = array();
+    public static $callbacks = array();
+    public static $maps = array();
+    public static $patterns = array(
 		':all'		 => '.*',
 		':any'		 => '[^/]+',
 		':slug'		 => '[a-z0-9-]+',
@@ -32,82 +29,34 @@ class NSY_Router
 		':alpha'	 => '[A-Za-z]+',
 		':alnum'	 => '[0-9A-Za-z]+',
 		':date'      => '[0-9]{4}-[0-9]{2}-[0-9]{2}'
-	];
+    );
+    public static $error_callback;
 
-	const NOHALT = 'DtMnL29y';
-
-	// add_route
-	public static function __callStatic($meths, $args) {
-		if ( $meths == 'group' ) {
-			$args[0] = null;
+    /**
+    * Defines a route w/ callback and method
+    */
+    public static function __callstatic($method, $params) {
+		if ( $method == 'group' ) {
+			$params[0] = null;
 		} else {
-			$args[0] = '/' . config_app('app_dir') . self::$base . $args[0];
+			$params[0] = '/' . config_app('app_dir') . self::$base . $params[0];
 		}
 
-		// detect var_regs vs route_name
-		$regs = null;
-		$name = null;
+        if ($method == 'map') {
+            $maps = array_map('strtoupper', $params[0]);
+            $uri = strpos($params[1], '/') === 0 ? $params[1] : '/' . $params[1];
+            $callback = $params[2];
+        } else {
+            $maps = null;
+            $uri = strpos($params[0], '/') === 0 ? $params[0] : '/' . $params[0];
+            $callback = $params[1];
+        }
 
-		switch (count($args)) {
-			case 3:
-				$regs = is_array($args[2])  ? $args[2] : null;
-				$name = is_string($args[2]) ? $args[2] : null;
-				break;
-			case 4:
-				$regs = is_array($args[2])  ? $args[2] : $args[3];
-				$name = is_string($args[2]) ? $args[2] : $args[3];
-				break;
-		}
-
-		$hash = self::hash($args[0], json_encode($regs));
-
-		if ($name !== null)
-			self::$names[$name] = $hash;
-
-		if (isset(self::$cache[$hash]))
-			$args[0] = self::$cache[$hash];
-		else {
-			// detect and process named params & add'l sugar (unescaped   @foo, @foo:bar, :bar)
-			$sweet = '#(?<!\\\\)@(\w+)(:\w+)?|(?<![\\?])(:\w+)#i';
-
-			if (preg_match($sweet, $args[0])) {
-				$args[0] = str_replace(['(',')'], ['(?:', ')?'], $args[0]);		// todo: ignore (?
-
-				$args[0] = preg_replace_callback($sweet, function($match) use ($regs) {
-					$var = $match[1];
-					$typ = isset($match[2]) && $match[2] !== '' ? $match[2] : ( isset($match[3]) ? $match[3] : ':seg' );
-
-					$rex = null;
-
-					if (isset($regs[$var])) {
-						if ($regs[$var]{0} == ':')
-							$typ = $regs[$var];
-						else
-							$rex = $regs[$var];
-					}
-
-					if (!$rex && $typ) {
-						if (!isset(self::$rxalias[$typ]))
-							trigger_error("Unknown ':{$typ}' regex alias; '@{$var}' param will not be validated.");
-						else
-							$rex = self::$rxalias[$typ];
-					}
-
-					return '(' . $rex . ')';
-
-				}, $args[0]);
-			}
-
-			self::$cache[$hash] = $args[0];
-		}
-
-		foreach (explode('|', strtoupper($meths)) as $meth) {
-			if (!isset(self::$routes[$meth]))
-				self::$routes[$meth] = [];
-
-			self::$routes[$meth][$args[0]] = [$args[1]];
-		}
-	}
+        array_push(self::$maps, $maps);
+        array_push(self::$routes, $uri);
+        array_push(self::$methods, strtoupper($method));
+        array_push(self::$callbacks, $callback);
+    }
 
 	/**
 	 * NSY Middleware System
@@ -186,171 +135,156 @@ class NSY_Router
 		}
     }
 
-	protected static function hash($uri, $params) {
-		return hash('md5', $uri . ' ' . json_encode($params));
-	}
-
-	public static function alias($alias, $regex) {
-		self::$rxalias[$alias] = $regex;
-	}
-
-	public static function any($route, $callback, $regs = null) {
-		self::match('get|post|put|patch|delete|head|options', $route, $callback, $regs);
-	}
-
-	// dynamic route loader
-	public static function mount(callable $mounter) {
-		self::$mounter = $mounter;
-	}
-
+	/**
+	 * group() method for grouping route according to the base route first.
+	 * Modified by Vikry Yuansah for NSY Routing System
+	 * @param  string $base
+	 * @param  array  $callback
+	 * @return void
+	 */
 	public static function group($base, $callback) {
 		$meths = 'group';
 
 		self::$base	= $base;
 
-		self::__callStatic($meths, [$base, $callback()]);
+		self::__callstatic($meths, [$base, $callback()]);
 
 		self::$base = null;
 	}
 
-	public static function match($meths, $route, $callback, $regs = null) {
-		self::__callStatic($meths, [$route, $callback, $regs]);
-	}
+    /**
+    * Defines callback if route is not found
+    */
+    public static function error($callback) {
+        self::$error_callback = $callback;
+    }
 
-	public static function nomatch($callback) {
-		self::$nomatch = $callback;
-	}
+    public static function haltOnMatch($flag = true) {
+        self::$halts = $flag;
+    }
 
-	protected static function find($meth, $uri, $from_route = null) {
-		$meth = strtoupper($meth);
-		// named route?
-		if (strpos($uri, '/') === false) {
-			if ($hash = @self::$names[$uri])
-				$uri = self::$cache[$hash];
-		}
+    /**
+    * Runs the callback for the given request
+    */
+    public static function dispatch(){
+        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $method = $_SERVER['REQUEST_METHOD'];
 
-		if (!isset(self::$routes[$meth]))
-			return false;
+        $searches = array_keys(static::$patterns);
+        $replaces = array_values(static::$patterns);
 
-		$rset = self::$routes[$meth];
+        $found_route = false;
 
-		$do_try = $from_route === null;
+        self::$routes = preg_replace('/\/+/', '/', self::$routes);
 
-		if ($do_try && isset($rset[$uri]))		// this optimization prevents pre-routes from working
-			return [$rset[$uri], [], $uri];
+        // Check if route is defined without regex
+        if (in_array($uri, self::$routes)) {
+            $route_pos = array_keys(self::$routes, $uri);
+            foreach ($route_pos as $route) {
 
-		foreach ($rset as $route => $funcs) {
-			if ($do_try) {
-				if (preg_match('#^' . $route . '$#', $uri, $params)) {
-					array_shift($params);
-					return [$funcs, $params, $route];
-				}
-			}
-			else if ($route === $from_route)
-				$do_try = true;
-		}
+                // Using an ANY option to match both GET and POST requests
+                if (self::$methods[$route] == $method || self::$methods[$route] == 'ANY' || in_array($method, self::$maps[$route])) {
+                    $found_route = true;
 
-		return false;
-	}
+                    // If route is not an object
+                    if (!is_object(self::$callbacks[$route])) {
 
-	public static function dispatch($meth = null, $uri = null, $params = []) {
-		$meth = $meth === null ? $_SERVER['REQUEST_METHOD'] : $meth;
-		$uri = $uri === null ? parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) : $uri;
+                        // Grab all parts based on a / separator
+                        $parts = explode('/',self::$callbacks[$route]);
 
-		if ($fn = self::$mounter)
-			$fn($uri);
+                        // Collect the last index of the array
+                        $last = end($parts);
 
-		$found = false;
-		$from_route = null;
+                        // Grab the controller name and method call
+                        $segments = explode('@',$last);
 
-		while ($route = self::find($meth, $uri, $from_route)) {
-			// before; todo: should receive request?
-			if (isset($route[0][1])) {
-				$bres = call_user_func($route[0][1]);
-				if ($bres !== self::NOHALT)
-					return;
-			}
+						$module = explode('\\', $segments[0]);
 
-			$res = call_user_func_array($route[0][0], empty($params) ? $route[1] : $params);
+						if (count($module) > 1) {
+							$fullclass = 'System\Modules\\'.$module[0].'\Controllers\\'.$module[1];
+						} else {
+							$fullclass = 'System\Controllers\\'.$module[0];
+						}
 
-			// pass-thru now, maybe waterfall later
-			if ($res === self::NOHALT)
-				$from_route = $route[2];
-			else {
-				$found = true;
+                        // Instanitate controller
+                        $controller = new $fullclass;
 
-				// after; todo: should receive response?
-				if (isset($route[0][2]))
-					call_user_func($route[0][2]);
+                        // Call method
+                        $controller->{$segments[1]}();
 
-				if (isset($res))
-					echo $res;
+                        if (self::$halts) return;
+                    } else {
+                        // Call closure
+                        call_user_func(self::$callbacks[$route]);
 
-				break;
-			}
-		}
+                        if (self::$halts) return;
+                    }
+                }
+            }
+        } else {
+            // Check if defined with regex
+            $pos = 0;
+            foreach (self::$routes as $route) {
+                if (strpos($route, ':') !== false) {
+                    $route = str_replace($searches, $replaces, $route);
+                }
 
-		if ($found)
-			return;
+                if (preg_match('#^' . $route . '$#', $uri, $matched)) {
+                    if (self::$methods[$pos] == $method || self::$methods[$pos] == 'ANY' || (!empty(self::$maps[$pos]) && in_array($method, self::$maps[$pos]))) {
+                        $found_route = true;
 
-		if ($nomatch = self::$nomatch) {
-			$nomatch($meth, $uri);
-			return;
-		}
+                        // Remove $matched[0] as [1] is the first parameter.
+                        array_shift($matched);
 
-		// default nomatch
-		header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
-		exit('404 Not Found.');
-	}
+                        if (!is_object(self::$callbacks[$pos])) {
 
-	public static function is_ajax() {
-		return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
-	}
+                            // Grab all parts based on a / separator
+                            $parts = explode('/',self::$callbacks[$pos]);
 
-	public static function is_https() {
-		return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443;
-	}
+                            // Collect the last index of the array
+                            $last = end($parts);
 
-	public static function invalid($msg = '400 Bad Request.') {
-		header($_SERVER["SERVER_PROTOCOL"] . " 400 Bad Request");
-		exit($msg);
-	}
+                            // Grab the controller name and method call
+                            $segments = explode('@',$last);
 
-	public static function json($data) {
-		header('Content-Type: application/json');
-		return json_encode($data);
-	}
+                            // Instanitate controller
+                            $controller = new $segments[0]();
 
-	// is_json, try to decode raw post body?
+                            // Fix multi parameters
+                            if (!method_exists($controller, $segments[1])) {
+                                echo "controller and action not found";
+                            } else {
+                                call_user_func_array(array($controller, $segments[1]), $matched);
+                            }
 
-	public static function json_reqd() {
-		return strpos(getallheaders()['Accept'], 'application/json') !== false;
-	}
+                            if (self::$halts) return;
+                        } else {
+                            call_user_func_array(self::$callbacks[$pos], $matched);
 
-	public static function deny($msg = null, $code = 401, $auth = 'Basic', $realm = null) {
-		if ($realm === null)
-			$realm = $_SERVER['HTTP_HOST'];
+                            if (self::$halts) return;
+                        }
+                    }
+                }
+                $pos++;
+            }
+        }
 
-		$HTTP = $_SERVER["SERVER_PROTOCOL"];
-
-		if ($code == 401) {
-			header("WWW-Authenticate: {$auth} realm=\"{$realm}\"", true);
-			header("{$HTTP} 401 Unauthorized", true, $code);
-			echo $msg === null ? 'Access denied: Not logged in' : $msg;
-		}
-		else if ($code == 403) {
-			header("{$HTTP} 403 Forbidden", true, $code);
-			echo $msg === null ? 'Access denied: Resource restricted' : $msg;
-		}
-	}
-
-	public static function export() {
-		return [self::$cache, self::$names];
-	}
-
-	public static function import(Array $cfg) {
-		self::$cache = $cfg[0];
-		self::$names = $cfg[1];
-	}
-
+        // Run the error callback if the route was not found
+        if ($found_route == false) {
+            if (!self::$error_callback) {
+                self::$error_callback = function() {
+                    header($_SERVER['SERVER_PROTOCOL']." 404 Not Found");
+					exit('404 Not Found.');
+                };
+            } else {
+                if (is_string(self::$error_callback)) {
+                    self::get($_SERVER['REQUEST_URI'], self::$error_callback);
+                    self::$error_callback = null;
+                    self::dispatch();
+                    return ;
+                }
+            }
+            call_user_func(self::$error_callback);
+        }
+    }
 }
