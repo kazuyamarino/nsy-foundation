@@ -26,7 +26,7 @@
 				<hr>
 
 				<div class="row">
-					<h3><a target="_blank" href="https://github.com/kazuyamarino/nsy-docs/blob/master/README.md#nsy-feature-">NSY Feature</a></h3>
+					<h3><a target="_blank" href="https://github.com/kazuyamarino/nsy-docs/blob/master/README.md#nsy-feature-">NSY Features</a></h3>
 					<div class="large-4 medium-4 cell">
 						<p><a target="_blank" href="https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer-on-nsy-framework">Composer on NSY</a><br/>NSY support Composer for install/update libraries.</p>
 					</div>
