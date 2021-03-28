@@ -25,65 +25,65 @@ function header_assets()
 	Add::meta('name="viewport"', 'width=device-width, initial-scale=1, shrink-to-fit=no');
 
 	// Favicon
-	add::link('favicon.png', 'shortcut icon', null);
+	Add::link('favicon.png', 'shortcut icon', null);
 
 	// Main Style
-	add::link('main.css', 'stylesheet', 'text/css');
+	Add::link('main.css', 'stylesheet', 'text/css');
 
 	// Foundation CSS
-	add::link('vendor/foundation.min.css', 'stylesheet', 'text/css');
-	add::link('vendor/responsive-tables.min.css', 'stylesheet', 'text/css');
+	Add::link('../vendor/foundation-sites/css/foundation.min.css', 'stylesheet', 'text/css');
+	Add::link('responsive-tables.min.css', 'stylesheet', 'text/css');
 
 	// Datatables CSS
-	add::link('vendor/dataTables.foundation.min.css', 'stylesheet', 'text/css');
-	add::link('vendor/foundation-datepicker.min.css', 'stylesheet', 'text/css');
+	Add::link('../vendor/datatables.net-zf/css/dataTables.foundation.min.css', 'stylesheet', 'text/css');
+	Add::link('../vendor/foundation-datepicker/css/foundation-datepicker.min.css', 'stylesheet', 'text/css');
 
 	// Font Awesome CSS
-	add::link('vendor/all.min.css', 'stylesheet', 'text/css');
+	Add::link('../vendor/@fortawesome/fontawesome-free/css/all.min.css', 'stylesheet', 'text/css');
 
 	// Modernizr JS
-	add::script('vendor/modernizr.min.js', 'text/javascript', 'UTF-8', null);
+	Add::script('modernizr.min.js', 'text/javascript', 'UTF-8', null);
 }
 
 function footer_assets()
 {
 	// JQuery JS
-	add::script('vendor/jquery.min.js', 'text/javascript', 'UTF-8', null);
-	add::script('vendor/jquery-migrate.min.js', 'text/javascript', 'UTF-8', null);
+	Add::script('../vendor/jquery/jquery.min.js', 'text/javascript', 'UTF-8', null);
+	Add::script('../vendor/jquery-migrate/jquery-migrate.min.js', 'text/javascript', 'UTF-8', null);
 
 	// Foundation JS
-	add::script('vendor/foundation.min.js', 'text/javascript', 'UTF-8', null);
-	add::script('vendor/what-input.min.js', 'text/javascript', 'UTF-8', null);
-	add::script('vendor/responsive-tables.min.js', 'text/javascript', 'UTF-8', null);
-	add::script('vendor/foundation-datepicker.min.js', 'text/javascript', 'UTF-8', null);
+	Add::script('../vendor/foundation-sites/js/foundation.min.js', 'text/javascript', 'UTF-8', null);
+	Add::script('../vendor/what-input/what-input.min.js', 'text/javascript', 'UTF-8', null);
+	Add::script('../vendor/foundation-datepicker/js/foundation-datepicker.min.js', 'text/javascript', 'UTF-8', null);
 
 	// Datatables JS
-	add::script('vendor/jquery.dataTables.min.js', 'text/javascript', 'UTF-8', null);
-	add::script('vendor/dataTables.foundation.min.js', 'text/javascript', 'UTF-8', null);
+	Add::script('../vendor/datatables.net/jquery.dataTables.min.js', 'text/javascript', 'UTF-8', null);
+	Add::script('../vendor/datatables.net-zf/js/dataTables.foundation.min.js', 'text/javascript', 'UTF-8', null);
+	Add::script('responsive-tables.min.js', 'text/javascript', 'UTF-8', null);
 
 	// Google Analytics: change UA-XXXXX-Y to be your site's ID.
-	add::custom("<script>window.ga=function(){ga.q.push(arguments)}; ga.q=[]; ga.l=+new Date;ga('create','UA-XXXXX-Y','auto'); ga('send','pageview')</script>");
-	add::script('https://www.google-analytics.com/analytics.js', 'text/javascript', null, 'async defer');
+	Add::custom("<script>window.ga=function(){ga.q.push(arguments)}; ga.q=[]; ga.l=+new Date;ga('create','UA-XXXXX-Y','auto'); ga('send','pageview')</script>");
+	Add::script('https://www.google-analytics.com/analytics.js', 'text/javascript', null, 'async defer');
 
 	// System JS
-	add::script('config/system.js', 'text/javascript', 'UTF-8', null);
+	Add::script('config/system.js', 'text/javascript', 'UTF-8', null);
 
 	// Base JS
-	add::script('main.js', 'text/javascript', 'UTF-8', null);
-}
-
-function datatables_init()
-{
-	add::script('datatables/init.js', 'text/javascript', 'UTF-8', null);
-}
-
-function datatables_crud_init()
-{
-	add::script('datatables/init_crud.js', 'text/javascript', 'UTF-8', null);
+	Add::script('main.js', 'text/javascript', 'UTF-8', null);
 }
 
 function sweetalert_init()
 {
-	add::script('vendor/sweetalert2.all.min.js', 'text/javascript', 'UTF-8', null);
-	add::script('vendor/polyfill.min.js', 'text/javascript', 'UTF-8', null);
+	Add::script('../vendor/sweetalert2/sweetalert2.all.min.js', 'text/javascript', 'UTF-8', null);
+	Add::script('../vendor/promise-polyfill/polyfill.min.js', 'text/javascript', 'UTF-8', null);
+}
+
+function datatables_init()
+{
+	Add::script('datatables/init.js', 'text/javascript', 'UTF-8', null);
+}
+
+function datatables_crud_init()
+{
+	Add::script('datatables/init_crud.js', 'text/javascript', 'UTF-8', null);
 }

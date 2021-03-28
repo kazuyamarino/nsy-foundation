@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'b29ac8f2d3d2d0ec99980f40b2e12df25a427e62',
+    'reference' => '473ac1b6c95bde6b381b287c28ec1a721c144604',
     'name' => 'vikry/shyffon',
   ),
   'versions' => 
@@ -130,7 +130,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'b29ac8f2d3d2d0ec99980f40b2e12df25a427e62',
+      'reference' => '473ac1b6c95bde6b381b287c28ec1a721c144604',
     ),
     'vlucas/phpdotenv' => 
     array (

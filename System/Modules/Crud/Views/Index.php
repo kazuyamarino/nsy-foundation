@@ -38,13 +38,14 @@
 					</label>
 					<p class="help-text" id="password-help">Enter your password here.</p>
 
-					<label for="radio-stat">Status Active&nbsp;<small>(required)</small></label>
-					<div id="radio-stat" class="radio-group">
-						<input type="radio" name="status" value="Y" id="act-stat" required><label for="act-stat">Yes</label>
-						<input type="radio" name="status" value="N" id="deact-stat"><label for="deact-stat">No</label>
-						<span class="form-error">Must select at least one</span>
-					</div>
-					<p class="help-text" id="status-help">Choose one user status.</p>
+					<label for="radio-stat">Status Active&nbsp;<small>(required)</small>
+						<div id="radio-stat" class="radio-group">
+							<input type="radio" name="status" value="Y" id="act-stat" required><label for="act-stat">Yes</label>
+							<input type="radio" name="status" value="N" id="deact-stat"><label for="deact-stat">No</label>
+							<span class="form-error">Must select at least one</span>
+						</div>
+						<p class="help-text" id="status-help">Choose one user status.</p>
+					</label>
 
 					<div id="term-cond" class="checkbox-group" data-validator-min="1" required>
 						<input type="checkbox" name="term-cond" value="Agree"><label class="pointer" data-open="term-cond-modal"><span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover='false' tabindex=1 title="Click to read the terms &amp; conditions">Terms & Conditions</span></label>

@@ -222,19 +222,27 @@
 						</select>
 					</label>
 
-					<label for="cutecharCheckbox">Pick at least two favs</label>
-					<div id="cutecharCheckbox" class="checkbox-group" data-validator-min="2" required>
-						<input type="checkbox" name="cutechar" value="Hello Kitty"><label>Hello Kitty</label>
-						<input type="checkbox" name="cutechar" value="My Melody"><label>My Melody</label>
-						<input type="checkbox" name="cutechar" value="Dear Daniel"><label>Dear Daniel</label>
-					</div>
+					<label>Pick at least two favs
+						<fieldset>
+							<input data-min-required="2" type="checkbox" name="exampleCheckbox" id="exampleCheckboxA" value="A">
+							<label for="exampleCheckboxA">Hello Kitty</label>
+							<input required type="checkbox" name="exampleCheckbox" id="exampleCheckboxB" value="B">
+							<label for="exampleCheckboxB">Dear Daniel</label>
+							<input type="checkbox" name="exampleCheckbox" id="exampleCheckboxC" value="C">
+							<label for="exampleCheckboxC">My Melody</label>
+						</fieldset>
+					</label>
 
-					<label for="cutecharRadio">Pick one color</label>
-					<div id="cutecharRadio" class="radio-group">
-				        <input type="radio" name="pokemon" value="Red" id="pokemonRed" required><label for="pokemonRed">Red</label>
-				        <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
-				        <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"><label for="pokemonYellow">Yellow</label>
-					</div>
+					<label>Pick one color
+						<fieldset>
+					        <input required type="radio" name="exampleRadio" id="exampleRadioA" value="A">
+					        <label for="exampleRadioA">Red</label>
+					        <input type="radio" name="exampleRadio" id="exampleRadioB" value="B">
+					        <label for="exampleRadioB">Blue</label>
+					        <input type="radio" name="exampleRadio" id="exampleRadioC" value="C">
+					        <label for="exampleRadioC">Green</label>
+				      	</fieldset>
+					</label>
 
 					<div class="text-center">
 						<button class="button" type="submit">Submit</button>
