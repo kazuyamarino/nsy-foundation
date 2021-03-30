@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '473ac1b6c95bde6b381b287c28ec1a721c144604',
+    'reference' => '51710716a5f802571976dd9060d78edf44b3c207',
     'name' => 'vikry/shyffon',
   ),
   'versions' => 
@@ -100,12 +100,12 @@ private static $installed = array (
     ),
     'symfony/translation' => 
     array (
-      'pretty_version' => 'v5.2.5',
-      'version' => '5.2.5.0',
+      'pretty_version' => 'v5.2.6',
+      'version' => '5.2.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0947ab1e3aabd22a6bef393874b2555d2bb976da',
+      'reference' => '2cc7f45d96db9adfcf89adf4401d9dfed509f4e1',
     ),
     'symfony/translation-contracts' => 
     array (
@@ -130,7 +130,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '473ac1b6c95bde6b381b287c28ec1a721c144604',
+      'reference' => '51710716a5f802571976dd9060d78edf44b3c207',
     ),
     'vlucas/phpdotenv' => 
     array (
@@ -364,7 +364,6 @@ self::$canGetVendors = method_exists('Composer\Autoload\ClassLoader', 'getRegist
 $installed = array();
 
 if (self::$canGetVendors) {
-
 foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
 if (isset(self::$installedByVendor[$vendorDir])) {
 $installed[] = self::$installedByVendor[$vendorDir];
